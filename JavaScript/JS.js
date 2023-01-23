@@ -20,4 +20,12 @@ var correctChars = [];
 
 // Array för antal försök/kroppsdelar 
 var hangman = [];
- 
+
+
+//funktion för att slumpa fram ett ord från countries listan
+
+function randomizeWord (listOfWords) {
+    var randomWord = Math.floor(Math.random() * countries.length);
+    console.log(countries[randomWord]);
+}
+ randomizeWord()
