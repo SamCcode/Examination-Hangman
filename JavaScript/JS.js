@@ -22,7 +22,7 @@ let correctChars = [];
 let hangman = [];
 
 
-//funktion för att slumpa fram ett ord från countries listan
+//funktion för att slumpa fram ett ord från countries listan och splitta ordet till en array
 
 function randomizeWord (listOfWords) {
     let randomWord = Math.floor(Math.random() * countries.length);
@@ -34,7 +34,10 @@ function randomizeWord (listOfWords) {
 }
  randomizeWord()
  
-//  splitta ordet till bokstäver och lägga i en Array
-
+function handleInput() {
+    document.addEventListener("keydown", () => {
+        console.log("hej");
+    }) 
+}
 
 
