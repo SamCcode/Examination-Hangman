@@ -138,10 +138,12 @@ document.addEventListener('keydown', (event) => {
   checkGuessed();
   generateWrongGuessedChars();
   generateHangman()
+ 
   console.log('WRONG CHAR LIST: ', wrongChars);
   console.log('GUESSED CHAR LIST: ', guessedChars);
   console.log('GUESSED WRONG : ', guessedWrongChars);
   console.log('FELGISSNINGAR: ', wrongGuesses);
+  checkIfItsGameOver()
 });
 
 //funktion för att slumpa fram ett ord från countries listan och splitta ordet till en array
@@ -279,7 +281,31 @@ renderInitialCorrectTemplate();
 // generera hangmans delar
 
 function generateHangman() {
-    for (let i = 0; i < guessedWrongChars.length; i++) {
+    for (let i = 0; i <= wrongGuesses-1; i++) {
         document.querySelector('figure').classList.add(`${hangman[i]}`)
     }
+}
+
+// spelet är över vid vinst
+
+// när alla rätt bokstäver är gissade
+
+function checkIfItsGameOver () {
+if (wrongGuesses >= 5) {
+    
+    alert("GAME OVER")
+    startAgain()
+    
+}
+}
+
+function startAgain () {
+    guessedChars = [];
+    availableChars = [];
+    correctChars = [];
+    wrongGuesses = 0;
+    document.querySelector("figure").className = "";
+    renderGuessedChars()
+    randomizeWord()
+    
 }
