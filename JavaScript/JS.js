@@ -114,11 +114,11 @@ let correctWord = '';
 
 // Array för antal försök/kroppsdelar
 let hangman = [
-  "document.querySelector('figure').classList.add('scaffold')",
-  "document.querySelector('figure').classList.add('head')",
-  "document.querySelector('figure').classList.add('body')",
-  "document.querySelector('figure').classList.add('arms')",
-  "document.querySelector('figure').classList.add('legs')",
+  'scaffold',
+  'head',
+  'body',
+  'arms',
+  'legs'
 ];
 
 let wrongGuesses = 0;
@@ -137,6 +137,7 @@ document.addEventListener('keydown', (event) => {
   renderGuessedChars();
   checkGuessed();
   generateWrongGuessedChars();
+  generateHangman()
   console.log('WRONG CHAR LIST: ', wrongChars);
   console.log('GUESSED CHAR LIST: ', guessedChars);
   console.log('GUESSED WRONG : ', guessedWrongChars);
@@ -273,3 +274,12 @@ function generateWrongGuessedChars() {
 
 generateWrongChars();
 renderInitialCorrectTemplate();
+
+
+// generera hangmans delar
+
+function generateHangman() {
+    for (let i = 0; i < guessedWrongChars.length; i++) {
+        document.querySelector('figure').classList.add(`${hangman[i]}`)
+    }
+}
