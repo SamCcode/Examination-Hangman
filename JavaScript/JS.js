@@ -75,11 +75,53 @@ let availableChars = [];
 // Array för korrekta bokstäver
 let correctChars = [];
 
-// Array för korrekt ord
+let wrongChars = [
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'I',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'O',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'W',
+  'X',
+  'Y',
+  'Z',
+  'Å',
+  'Ä',
+  'Ö',
+];
+
+let guessedWrongChars = [];
+
+// Sträng för korrekt ord
 let correctWord = '';
 
 // Array för antal försök/kroppsdelar
-let hangman = [];
+let hangman = [
+  "document.querySelector('figure').classList.add('scaffold')",
+  "document.querySelector('figure').classList.add('head')",
+  "document.querySelector('figure').classList.add('body')",
+  "document.querySelector('figure').classList.add('arms')",
+  "document.querySelector('figure').classList.add('legs')",
+];
+
+let wrongGuesses = 0;
 
 let input = '';
 
@@ -94,9 +136,11 @@ document.addEventListener('keydown', (event) => {
   compareInput(input, correctChars);
   renderGuessedChars();
   checkGuessed();
-  console.log(guessedChars);
-
-  console.log(input);
+  generateWrongGuessedChars();
+  console.log('WRONG CHAR LIST: ', wrongChars);
+  console.log('GUESSED CHAR LIST: ', guessedChars);
+  console.log('GUESSED WRONG : ', guessedWrongChars);
+  console.log('FELGISSNINGAR: ', wrongGuesses);
 });
 
 //funktion för att slumpa fram ett ord från countries listan och splitta ordet till en array
@@ -151,12 +195,14 @@ function handleGuessedChars(inputValue, listToCheck) {
 // Hämtar varje GISSAD bokstav och jämför med CORRECT.
 function checkGuessed() {
   // Loopar fram varje bokstav som finns i det rätta ordet
+
   for (let i = 0; i < correctChars.length; i++) {
-    // Testar varje GISSAD bokstav på ALLA plaser från CORRECT.
+    let isCorrect = false;
+    // Testar varje GISSAD bokstav på ALLA plaster från CORRECT.
     for (let j = 0; j < guessedChars.length; j++) {
       if (guessedChars[j] === correctChars[i]) {
         updateCorrectChar(i);
-        // ÄNDRA INNERTEXT I EXISTERANDE LI ITEM
+        isCorrect = true;
       }
     }
   }
@@ -194,4 +240,36 @@ function renderInitialCorrectTemplate() {
   });
 }
 
+// Ta bort alla CORRECT bokstäver från ALPHABET.
+function generateWrongChars() {
+  correctChars.forEach((bokstav) => {
+    for (let i = 0; i < wrongChars.length; i++) {
+      if (bokstav === wrongChars[i]) {
+        wrongChars.splice(i, 1);
+      }
+    }
+  });
+}
+
+function generateWrongGuessedChars() {
+  // Kopiera värdet till guessedWrongChars
+  guessedWrongChars = [];
+  guessedChars.forEach((char) => {
+    guessedWrongChars.push(char);
+  });
+
+  // Kollar efter matching mot CORRECT
+  correctChars.forEach((char) => {
+    for (let i = 0; i < guessedWrongChars.length; i++) {
+      if (char === guessedWrongChars[i]) {
+        guessedWrongChars.splice(i, 1);
+      }
+    }
+  });
+
+  // Felgissningar är total längden av bokstäver i WRONG GUESSED.
+  wrongGuesses = guessedWrongChars.length;
+}
+
+generateWrongChars();
 renderInitialCorrectTemplate();
