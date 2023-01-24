@@ -127,24 +127,28 @@ let input = '';
 
 // Tracka keypress hela tiden. Uppdatera senaste bokstav
 document.addEventListener('keydown', (event) => {
-  if (window.event) {
-    input = event.key.toUpperCase();
-    numOfGuesses++;
-    console.log('Num of guesses ', numOfGuesses);
-  }
+    if (wrongGuesses < 5) {
+        if (window.event) {
+          input = event.key.toUpperCase();
+          numOfGuesses++;
+          console.log('Num of guesses ', numOfGuesses);
+        }
+      
+        compareInput(input, correctChars);
+        renderGuessedChars();
+        checkGuessed();
+        generateWrongGuessedChars();
+        
+        
+        console.log('WRONG CHAR LIST: ', wrongChars);
+        console.log('GUESSED CHAR LIST: ', guessedChars);
+        console.log('GUESSED WRONG : ', guessedWrongChars);
+        console.log('FELGISSNINGAR: ', wrongGuesses);
+        generateHangman()
+        checkIfItsGameOver()
+      };
 
-  compareInput(input, correctChars);
-  renderGuessedChars();
-  checkGuessed();
-  generateWrongGuessedChars();
-  generateHangman()
- 
-  console.log('WRONG CHAR LIST: ', wrongChars);
-  console.log('GUESSED CHAR LIST: ', guessedChars);
-  console.log('GUESSED WRONG : ', guessedWrongChars);
-  console.log('FELGISSNINGAR: ', wrongGuesses);
-  checkIfItsGameOver()
-});
+    })
 
 //funktion för att slumpa fram ett ord från countries listan och splitta ordet till en array
 
@@ -235,8 +239,12 @@ function updateCorrectChar(index) {
 
 // Skapar fram lika många LI element som bokstäver i CORRECT ord.
 function renderInitialCorrectTemplate() {
-  let template = document.querySelector('.word');
 
+  let template = document.querySelector('.word');
+    let allLi = document.querySelectorAll(".word li")
+    allLi.forEach((li) =>{
+        li.remove()
+    })
   correctChars.forEach((char) => {
     let listItem = document.createElement('li');
     template.appendChild(listItem);
@@ -281,8 +289,9 @@ renderInitialCorrectTemplate();
 // generera hangmans delar
 
 function generateHangman() {
-    for (let i = 0; i <= wrongGuesses-1; i++) {
+    for (let i = 0; i < wrongGuesses; i++) {
         document.querySelector('figure').classList.add(`${hangman[i]}`)
+        console.log("antal kroppsdelar", i);
     }
 }
 
@@ -290,12 +299,26 @@ function generateHangman() {
 
 // när alla rätt bokstäver är gissade
 
+function buttonStartNewGame () {
+    let button = document.createElement("button");
+    button.addEventListener("click", ()=> {
+        startAgain ()
+        document.querySelector("button").remove()
+    })
+    button.innerText = "Start a new game";
+    document.querySelector("main").appendChild(button)
+}
+
+function gameOver () {
+    let text = document.createElement("h2");
+    text.innerText = "Game over!";
+    document.querySelector("main").insertAdjacentElement("afterbegin", text)
+}
+
 function checkIfItsGameOver () {
 if (wrongGuesses >= 5) {
-    
-    alert("GAME OVER")
-    startAgain()
-    
+    buttonStartNewGame()
+    gameOver()
 }
 }
 
@@ -304,8 +327,10 @@ function startAgain () {
     availableChars = [];
     correctChars = [];
     wrongGuesses = 0;
+    document.querySelector("h2").remove()
     document.querySelector("figure").className = "";
     renderGuessedChars()
     randomizeWord()
-    
+    renderInitialCorrectTemplate()
 }
+
