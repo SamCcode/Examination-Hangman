@@ -92,6 +92,8 @@ document.addEventListener('keydown', (event) => {
   }
 
   compareInput(input, correctChars);
+  renderGuessedChars();
+  checkGuessed();
   console.log(guessedChars);
 
   console.log(input);
@@ -112,9 +114,8 @@ function randomizeWord(listOfWords) {
 }
 
 randomizeWord();
-
+// Kollar så att användaren skriver en BOKSTAV
 function compareInput(inputValue) {
-  // Kolla först så de skriver en bokstav
   let hasMatched = false;
   for (let i = 0; i < alphabet.length; i++) {
     if (inputValue === alphabet[i]) {
@@ -127,11 +128,12 @@ function compareInput(inputValue) {
   }
 
   if (hasMatched) {
-    checkGuessedChars(inputValue, guessedChars);
+    handleGuessedChars(inputValue, guessedChars);
   }
 }
 
-function checkGuessedChars(inputValue, listToCheck) {
+// Kollar om vi redan har använt bokstaven, annars läggs bokstaven till i GISSADE listan.
+function handleGuessedChars(inputValue, listToCheck) {
   let match = false;
   for (let i = 0; i < listToCheck.length; i++) {
     if (inputValue === listToCheck[i]) {
@@ -145,3 +147,51 @@ function checkGuessedChars(inputValue, listToCheck) {
     guessedChars.push(inputValue);
   }
 }
+
+// Hämtar varje GISSAD bokstav och jämför med CORRECT.
+function checkGuessed() {
+  // Loopar fram varje bokstav som finns i det rätta ordet
+  for (let i = 0; i < correctChars.length; i++) {
+    // Testar varje GISSAD bokstav på ALLA plaser från CORRECT.
+    for (let j = 0; j < guessedChars.length; j++) {
+      if (guessedChars[j] === correctChars[i]) {
+        updateCorrectChar(i);
+        // ÄNDRA INNERTEXT I EXISTERANDE LI ITEM
+      }
+    }
+  }
+}
+
+// Skriv ut alla AVNÄNDA BOKSTÄVER
+function renderGuessedChars() {
+  let noMatch = document.querySelector('.nomatch');
+
+  // Ta bort alla tidigare LI / Gissningar från UI
+  let removeAll = document.querySelectorAll('.nomatch li');
+  removeAll.forEach((item) => item.remove());
+
+  // Lägg till alla senaste gissningarna till AVNÄNDA BOKSTÄVER
+  guessedChars.forEach((bokstav) => {
+    let guessedList = document.createElement('li');
+    guessedList.innerText = bokstav;
+    noMatch.appendChild(guessedList);
+  });
+}
+
+// Lägger in rätt bokstav på rätt INDEX
+function updateCorrectChar(index) {
+  let allListElem = document.querySelectorAll('.word li');
+  allListElem[index].innerHTML = correctChars[index];
+}
+
+// Skapar fram lika många LI element som bokstäver i CORRECT ord.
+function renderInitialCorrectTemplate() {
+  let template = document.querySelector('.word');
+
+  correctChars.forEach((char) => {
+    let listItem = document.createElement('li');
+    template.appendChild(listItem);
+  });
+}
+
+renderInitialCorrectTemplate();
