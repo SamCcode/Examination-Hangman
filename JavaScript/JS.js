@@ -122,28 +122,35 @@ let hangman = [
 ];
 
 let wrongGuesses = 0;
-
+let wonPoints = 0;
+let lostGame = 0;
+let attempt = 0;
 let input = '';
-
+let gameOver = false;
 // Tracka keypress hela tiden. Uppdatera senaste bokstav
 document.addEventListener('keydown', (event) => {
-    if (wrongGuesses < 5) {
+    if (gameOver === false) {
         if (window.event) {
           input = event.key.toUpperCase();
           numOfGuesses++;
-          console.log('Num of guesses ', numOfGuesses);
+        //   console.log('Num of guesses ', numOfGuesses);
         }
       
         compareInput(input, correctChars);
         renderGuessedChars();
         checkGuessed();
         generateWrongGuessedChars();
-        
-        
-        console.log('WRONG CHAR LIST: ', wrongChars);
-        console.log('GUESSED CHAR LIST: ', guessedChars);
-        console.log('GUESSED WRONG : ', guessedWrongChars);
-        console.log('FELGISSNINGAR: ', wrongGuesses);
+        countRightChars()
+      
+        // console.log('WRONG CHAR LIST: ', wrongChars);
+        // console.log('GUESSED CHAR LIST: ', guessedChars);
+        // console.log('GUESSED WRONG : ', guessedWrongChars);
+        // console.log('FELGISSNINGAR: ', wrongGuesses);
+        // console.log("rätt bokstäver; ", guessedCorrectChars);
+        // console.log("NumOFCORRECT", numOfCorrect);
+        console.log("lost", lostGame);
+        console.log("won",wonPoints);
+        console.log("tried",attempt);
         generateHangman()
         checkIfItsGameOver()
       };
@@ -199,20 +206,40 @@ function handleGuessedChars(inputValue, listToCheck) {
   }
 }
 
+let guessedCorrectChars = [];
 // Hämtar varje GISSAD bokstav och jämför med CORRECT.
 function checkGuessed() {
   // Loopar fram varje bokstav som finns i det rätta ordet
 
   for (let i = 0; i < correctChars.length; i++) {
-    let isCorrect = false;
     // Testar varje GISSAD bokstav på ALLA plaster från CORRECT.
     for (let j = 0; j < guessedChars.length; j++) {
-      if (guessedChars[j] === correctChars[i]) {
+      if (correctChars[i] === guessedChars[j]) {
         updateCorrectChar(i);
-        isCorrect = true;
-      }
     }
-  }
+}
+}
+
+}
+let numOfCorrect = 0;
+
+function countRightChars () {
+
+    numOfCorrect = 0;
+for (let i =0; i< guessedChars.length; i++) {
+    console.log("correct chars:", guessedChars[i]);
+    for (let j =0; j< correctChars.length; j++) {
+        console.log("correct guessed", correctChars[j]);
+        if (correctChars[j] === guessedChars[i]) {
+            numOfCorrect++
+            
+        }
+    }
+
+}
+if (numOfCorrect === correctChars.length) {
+    gameWon()
+}
 }
 
 // Skriv ut alla AVNÄNDA BOKSTÄVER
@@ -309,16 +336,33 @@ function buttonStartNewGame () {
     document.querySelector("main").appendChild(button)
 }
 
-function gameOver () {
+function gameIsOver () {
     let text = document.createElement("h2");
-    text.innerText = "Game over!";
+    text.innerText = `Game over! Ordet vi sökte var: ${correctWord}`;
     document.querySelector("main").insertAdjacentElement("afterbegin", text)
+    gameOver = true;
+    lostGame++
+    attempt++
+    uppdateCounters()
 }
+
+
+function gameWon () {
+    let text = document.createElement("h2");
+    text.innerText = "Grattis, du klarade det!";
+    document.querySelector("main").insertAdjacentElement("afterbegin", text)
+    buttonStartNewGame()
+    gameOver = true;
+    wonPoints++
+    attempt++
+    uppdateCounters()
+}
+
 
 function checkIfItsGameOver () {
 if (wrongGuesses >= 5) {
     buttonStartNewGame()
-    gameOver()
+    gameIsOver()
 }
 }
 
@@ -332,5 +376,21 @@ function startAgain () {
     renderGuessedChars()
     randomizeWord()
     renderInitialCorrectTemplate()
+    gameOver = false;
 }
 
+let won = document.createElement("p")
+let lost = document.createElement("p")
+let played = document.createElement("p")
+document.querySelector("footer").appendChild(won)
+document.querySelector("footer").appendChild(lost)
+document.querySelector("footer").appendChild(played)
+won.innerHTML = `Wins: ${wonPoints}`
+lost.innerHTML = `lost: ${lostGame}`
+played.innerHTML = `played: ${attempt}`
+
+function uppdateCounters () {
+    won.innerHTML = `Wins: ${wonPoints}`
+    lost.innerHTML = `lost: ${lostGame}`
+    played.innerHTML = `played: ${attempt}`
+}
