@@ -30,6 +30,17 @@ const countries = [
   'TJECKIEN',
   'UNGERN',
   'ESTLAND',
+  'IRAK',
+  'IRAN',
+  'INDIEN',
+  'ISRAEL',
+  'KINA',
+  'LAOS',
+  'NEPAL',
+  'NORDKOREA',
+  'QUATAR',
+  'OMAN',
+  'JAPAN'
 ];
 
 // Array för bokstäver
