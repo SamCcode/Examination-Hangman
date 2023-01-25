@@ -8,54 +8,6 @@ body {
     background: #eee;
 }
 
-button {
-    font-size: 18px;
-    position :fixed;
-    right: 80%;
-    top: 25%;
-    padding: 10px 25px;
-    background-color: greenyellow;
-    border-radius : 10px;
-    border-width : 2px;
-    text-align : center;
-    display : inline-block
-}
-
-main h2 {
-    border-width : 10px;
-    border-color: black;
-    border-radius : 10px;
-    color :rgb(251, 255, 242);
-    background-color: rgb(255, 34, 34);
-    padding : 10px 10px;
-}
-
-footer p {
-    position : fixed;
-    right : 80%;
-    top : 25%;
-    text-align: center;
-}
-
-footer won {
-    position : fixed;
-    right : 80%;
-    top : 35%;
-}
-
-footer lost {
-    position : fixed;
-    right : 80%;
-    top : 45%;
-}
-
-footer played {
-    position : fixed;
-    right : 80%;
-    top : 55%;
-}
-
-
 main {
     max-width: 520px;
     width: 100%;

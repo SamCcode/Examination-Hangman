@@ -240,7 +240,20 @@ function checkGuessed() {
     for (let j = 0; j < guessedChars.length; j++) {
       if (correctChars[i] === guessedChars[j]) {
         updateCorrectChar(i);
-        isCorrect = true;
+      }
+    }
+  }
+}
+let numOfCorrect = 0;
+
+function countRightChars() {
+  numOfCorrect = 0;
+  for (let i = 0; i < guessedChars.length; i++) {
+    console.log('correct chars:', guessedChars[i]);
+    for (let j = 0; j < correctChars.length; j++) {
+      console.log('correct guessed', correctChars[j]);
+      if (correctChars[j] === guessedChars[i]) {
+        numOfCorrect++;
       }
     }
   }
@@ -273,7 +286,6 @@ function updateCorrectChar(index) {
 
 // Skapar fram lika många LI element som bokstäver i CORRECT ord.
 function renderInitialCorrectTemplate() {
-
   let template = document.querySelector('.word');
   let allLi = document.querySelectorAll('.word li');
   allLi.forEach((li) => {
@@ -331,39 +343,6 @@ function generateHangman() {
 // spelet är över vid vinst
 
 // när alla rätt bokstäver är gissade
-
-function buttonStartNewGame () {
-    let button = document.createElement("button");
-    button.addEventListener("click", ()=> {
-        startAgain ()
-        document.querySelector("button").remove()
-    })
-    button.innerText = "Start a new game";
-    document.querySelector("main").appendChild(button)
-}
-
-function gameIsOver () {
-    let text = document.createElement("h2");
-    text.innerText = `Game over! Ordet vi sökte var: ${correctWord}`;
-    document.querySelector("main").insertAdjacentElement("afterbegin", text)
-    gameOver = true;
-    lostGame++
-    attempt++ 
-    uppdateCounters()
-}
-
-
-function gameWon () {
-    let text = document.createElement("h2");
-    text.innerText = "Grattis, du klarade det!";
-    document.querySelector("main").insertAdjacentElement("afterbegin", text)
-    buttonStartNewGame()
-    gameOver = true;
-    wonPoints++
-    attempt++
-    uppdateCounters()
-}
-
 
 // function buttonStartNewGame() {
 //   let button = document.createElement('button');
