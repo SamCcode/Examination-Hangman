@@ -197,3 +197,7 @@ button:hover {
     cursor: pointer;
     background-color: rgba(0,0,0,0.8);
 }
+
+.hint-container {
+    text-align: center;
+}

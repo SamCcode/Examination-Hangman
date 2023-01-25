@@ -321,7 +321,6 @@ document.addEventListener('keydown', (event) => {
       if (window.event) {
         input = event.key.toUpperCase();
         numOfGuesses++;
-        //   console.log('Num of guesses ', numOfGuesses);
       }
 
       compareInput(input, correctChars);
@@ -329,16 +328,6 @@ document.addEventListener('keydown', (event) => {
       checkGuessed();
       generateWrongGuessedChars();
       countRightChars();
-
-      // console.log('WRONG CHAR LIST: ', wrongChars);
-      // console.log('GUESSED CHAR LIST: ', guessedChars);
-      // console.log('GUESSED WRONG : ', guessedWrongChars);
-      // console.log('FELGISSNINGAR: ', wrongGuesses);
-      // console.log("rätt bokstäver; ", guessedCorrectChars);
-      // console.log("NumOFCORRECT", numOfCorrect);
-      console.log('lost', lostGame);
-      console.log('won', wonPoints);
-      console.log('tried', attempt);
       generateHangman();
       checkIfItsGameOver();
     }
@@ -351,12 +340,9 @@ function randomizeWord(list) {
   let index = Math.floor(Math.random() * list.length);
   correctWord = list[index].country;
 
-  console.log(correctWord);
   for (let i = 0; i < correctWord.length; i++) {
     correctChars.push(correctWord.charAt(i));
-    console.log(correctWord.charAt(i));
   }
-  console.log(correctChars);
   indexOfRandomizedWord = index; // För användning i andra funktioner
 }
 
@@ -414,9 +400,7 @@ let numOfCorrect = 0;
 function countRightChars() {
   numOfCorrect = 0;
   for (let i = 0; i < guessedChars.length; i++) {
-    console.log('correct chars:', guessedChars[i]);
     for (let j = 0; j < correctChars.length; j++) {
-      console.log('correct guessed', correctChars[j]);
       if (correctChars[j] === guessedChars[i]) {
         numOfCorrect++;
       }
@@ -501,7 +485,6 @@ renderInitialCorrectTemplate();
 function generateHangman() {
   for (let i = 0; i < wrongGuesses; i++) {
     document.querySelector('figure').classList.add(`${hangman[i]}`);
-    console.log('antal kroppsdelar', i);
   }
 }
 
@@ -683,9 +666,7 @@ function looseModule() {
 function removeModule() {
   let module = document.querySelector('.module');
   module.remove();
-  console.log('Före remove', hasPopup);
   hasPopup = false;
-  console.log('Efter remove', hasPopup);
 }
 
 function startingPopup() {
@@ -770,19 +751,17 @@ startingPopup();
 let hintButton = document.createElement('button');
 let hintContainer = document.createElement('div');
 hintContainer.className = 'hint-container';
-let hint1 = document.createElement('p');
-let hint2 = document.createElement('p');
-let hint3 = document.createElement('p');
-hintContainer.appendChild(hint1);
-hintContainer.appendChild(hint2);
-hintContainer.appendChild(hint3);
+
 document.querySelector('main').appendChild(hintButton);
 document.querySelector('main').appendChild(hintContainer);
 hintButton.innerText = 'Sacrifice a guess for a hint!';
 let numOfClicks = 0;
+
 hintButton.addEventListener('click', (event) => {
   numOfClicks++;
-  handleHintClick(numOfClicks);
+  if (numOfClicks <= 3) {
+    handleHintClick(numOfClicks);
+  }
 });
 
 function createHints() {
@@ -796,8 +775,13 @@ function handleHintClick(numOfClicks) {
   wrongGuesses++;
   generateHangman();
   checkIfItsGameOver();
+
+  let hint = document.createElement('p');
+  hintContainer.insertAdjacentElement('afterend', hint);
+
   let obj; // Listan som vi vill targeta
 
+  // FÅ FRAM RÄTT OBJEKT ATT TA DATA FRÅN
   if (hardnessLevel === 'easy') {
     obj = easyList[indexOfRandomizedWord];
   } else if (hardnessLevel === 'medium') {
@@ -806,20 +790,17 @@ function handleHintClick(numOfClicks) {
     obj = hardList[indexOfRandomizedWord];
   }
 
-  console.log('RÄTT OBJEKT ', obj);
+  // let hintList = document.querySelectorAll('.hint-container p');
 
-  let hintList = document.querySelectorAll('.hint-container p');
-
+  // GENERERA P TAGG MED RÄTT HINT
   if (numOfClicks === 1) {
-    hintList[0].innerHTML = `THE WORD IS A COUNTRY`;
+    hint.innerHTML = `THE WORD IS A COUNTRY`;
   } else if (numOfClicks === 2) {
-    hintList[numOfClicks - 1].innerHTML = `COLOR OF THE FLAG IS: ${
+    hint.innerHTML = `COLOR OF THE FLAG: ${
       Object.values(obj)[numOfClicks - 1]
     }`;
   } else {
-    hintList[numOfClicks - 1].innerHTML = `${
-      Object.values(obj)[numOfClicks - 1]
-    }`;
+    hint.innerHTML = `${Object.values(obj)[numOfClicks - 1]}`;
   }
 }
 
