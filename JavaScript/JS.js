@@ -2,45 +2,172 @@
 
 // Array för ord
 
+
 const countries = [
-  'FINLAND',
-  'NEDERLÄNDERNA',
-  'BELGIEN',
-  'BULGARIEN',
-  'SPANIEN',
-  'IRLAND',
-  'ITALIEN',
-  'ÖSTERRIKE',
-  'GREKLAND',
-  'KROATIEN',
-  'CYPERN',
-  'LETTLAND',
-  'LITAUEN',
-  'LUXENBURG',
-  'MALTA',
-  'PORTUGAL',
-  'POLEN',
-  'FRANKRIKE',
-  'RUMÄNIEN',
-  'SVERIGE',
-  'TYSKLAND',
-  'SLOVAKIEN',
-  'SLOVENIEN',
-  'DANMARK',
-  'TJECKIEN',
-  'UNGERN',
-  'ESTLAND',
-  'IRAK',
-  'IRAN',
-  'INDIEN',
-  'ISRAEL',
-  'KINA',
-  'LAOS',
-  'NEPAL',
-  'NORDKOREA',
-  'QUATAR',
-  'OMAN',
-  'JAPAN'
+  {
+    country:'FINLAND',
+    flag: 'BLUE AND WHITE',
+    hint: 'LOVES TO SAUNA'
+  },{
+    country:'NEDERLÄNDERNA',
+    flag: 'RED, WHITE AND BLUE',
+    hint: 'LOVES TULIPS'
+  },{
+    country:'BELGIEN',
+    flag: 'BLACK, YELLOW AND RED',
+    hint: 'LOVES CHOCOLATE'
+  },{
+    country:'BULGARIEN',
+    flag: 'WHITE, GREEN AND RED',
+    hint: 'BORDER TO ROMANIA'
+  },{
+    country:'SPANIEN',
+    flag: 'RED AND YELLOW',
+    hint: 'LOVES TO SIESTA'
+  },{
+    country:'IRLAND',
+    flag: 'GREEN, WHITE AND ORANGE',
+    hint: 'LOVES GUINNESS'
+  },{
+    country:'ITALIEN',
+    flag:  'GREEN, WHITE AND RED',
+    hint: 'LOVES PIZZA'
+  },{
+    country:'ÖSTERRIKE',
+    flag:  'RED AND WHITE',
+    hint: 'LOVES TO SKI'
+  },{
+    country:'GREKLAND',
+    flag:  'BLUE AND WHITE',
+    hint: 'LOVES OLIVES'
+  },{
+    country:'KROATIEN',
+    flag:  'RED, WHITE AND BLUE',
+    hint: 'STONY BEACHES'
+  },{
+    country:'CYPERN',
+    flag:  'WHITE AND ORANGE',
+    hint: 'LOVES AFRODITE'
+  },{
+    country:'LETTLAND',
+    flag:  'RED AND WHITE',
+    hint: 'A EASY COUNTRY'
+  },{
+    country:'LITAUEN',
+    flag:  'YELLOW, GREEN AND RED',
+    hint: 'KNOWN AS THE PEARL OF THE BALTIC SEA'
+  },{
+    country:'LUXENBURG',
+    flag:  'RED, WHITE AND BLUE',
+    hint: 'A TINY COUNTRY'
+  },
+  {
+    country:'MALTA',
+    flag:  'RED AND WHITE',
+    hint: 'THE FAMOUS CITY OF MDINA'
+  },
+  {
+    country:'PORTUGAL',
+    flag:  'GREEN AND RED',
+    hint: 'CRISTIANO RONALDO'
+  },
+  {
+    country:'POLEN',
+    flag:  'RED AND WHITE',
+    hint: 'GREAT WORKERS'
+  },{
+    country:'FRANKRIKE',
+    flag:  'BLUE, WHITE AND RED',
+    hint: 'MOST TIMEZONES IN THE WORLD'
+  },{
+    country:'RUMÄNIEN',
+    flag:  'BLUE, YELLOW AND RED',
+    hint: 'RIVER DONAU RUNS THRU THIS COUNTRY'
+  },{
+    country:'SVERIGE',
+    flag:  'BLUE AND YELLOW',
+    hint: 'IKEA'
+  },{
+    country:'TYSKLAND',
+    flag:  'BLACK, RED AND YELLOW',
+    hint: 'CURRYWURST'
+  },{
+    country:'SLOVAKIEN',
+    flag:  'WHITE, BLUE AND RED',
+    hint: 'BECAME INDEPENDENT 1993'
+  },
+  {
+    country:'SLOVENIEN',
+    flag:  'WHITE, BLUE AND RED',
+    hint: 'LAKE BLED'
+  },
+  {
+    country:'DANMARK',
+    flag:  'RED AND WHITE',
+    hint: 'PÖLSE'
+  },
+  {
+    country:'TJECKIEN',
+    flag:  'BLUE, WHITE AND RED',
+    hint: 'LOVES BEER'
+  },{
+    country:'UNGERN',
+    flag:  'RED, WHITE AND GREEN',
+    hint: 'LOVES GOULASH'
+  },
+  {
+    country:'ESTLAND',
+    flag:  'BLUE, BLACK AND WHITE',
+    hint: 'HOME OF 2000 ISLANDS'
+  },
+  {
+    country:'IRAK',
+    flag:  'RED, WHITE AND BLACK',
+    hint: 'THE NAME MEANS TWO VEINS'
+  },
+  {
+    country:'IRAN',
+    flag:  'GREEN, WHITE AND RED',
+    hint: 'LOVES CARPETS'
+  },{
+    country:'INDIEN',
+    flag:  'ORANGE, WHITE AND GREEN',
+    hint: 'LOVES CURRY'
+  },{
+    country:'ISRAEL',
+    flag:  'WHITE AND BLUE',
+    hint: 'HOME OF JERUSALEM'
+  },{
+    country:'KINA',
+    flag:  'RED AND YELLOW',
+    hint: 'LOVES RICE'
+  },{
+    country:'LAOS',
+    flag:  'RED, BLUE AND WHITE',
+    hint: 'FORMER KINGDOM OF LAN XANG'
+  },{
+    country:'NEPAL',
+    flag:  'RED, BLUE AND WHITE',
+    hint: 'MOUNTAINS'
+  },{
+    country:'NORDKOREA',
+    flag:  'BLUE, WHITE AND RED',
+    hint: 'KIM JONG-UN'
+  },{
+    country:'QUATAR',
+    flag:  'BURGUNDY AND WHITE',
+    hint: 'LOVES TO SAUNA'
+  },{
+    country:'OMAN',
+    flag:  'RED, WHITE AND GREEN',
+    hint: 'TO EASY TO GET A HINT'
+  },
+  {
+    country:'JAPAN',
+    flag:  'WHITE AND RED',
+    hint: 'SUSHI'
+  },
+
 ];
 
 // Array för bokstäver
