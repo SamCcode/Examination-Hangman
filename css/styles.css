@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,6 +141,35 @@ section.game-over.show {
     align-items: center;
     border-radius: 1rem;
     text-align: center;
+}
+.score {
+    display : flex;
+    flex-direction: column;
+    position: fixed;
+    top: 15rem;
+    left: 10rem;
+}
+
+.score p {
+    text-align: center;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    
+}
+
+.won {
+    background-color: rgb(69, 184, 69);
+    color: rgb(0, 0, 0);
+}
+
+.lost {
+    background-color: rgb(241, 66, 66);
+    color:  rgb(241, 230, 230);
+}
+
+.played {
+    background-color: rgb(68, 68, 68);
+    color: rgb(241, 230, 230);
 }
 
 span {
