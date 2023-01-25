@@ -122,29 +122,40 @@ let hangman = [
 ];
 
 let wrongGuesses = 0;
-
+let wonPoints = 0;
+let lostGame = 0;
+let attempt = 0;
 let input = '';
-
+let gameOver = false;
 // Tracka keypress hela tiden. Uppdatera senaste bokstav
 document.addEventListener('keydown', (event) => {
-  if (window.event) {
-    input = event.key.toUpperCase();
-    numOfGuesses++;
-    console.log('Num of guesses ', numOfGuesses);
-  }
+    if (gameOver === false) {
+        if (window.event) {
+          input = event.key.toUpperCase();
+          numOfGuesses++;
+        //   console.log('Num of guesses ', numOfGuesses);
+        }
 
-  compareInput(input, correctChars);
-  renderGuessedChars();
-  checkGuessed();
-  generateWrongGuessedChars();
-  generateHangman()
- 
-  console.log('WRONG CHAR LIST: ', wrongChars);
-  console.log('GUESSED CHAR LIST: ', guessedChars);
-  console.log('GUESSED WRONG : ', guessedWrongChars);
-  console.log('FELGISSNINGAR: ', wrongGuesses);
-  checkIfItsGameOver()
-});
+        compareInput(input, correctChars);
+        renderGuessedChars();
+        checkGuessed();
+        generateWrongGuessedChars();
+        countRightChars()
+
+        // console.log('WRONG CHAR LIST: ', wrongChars);
+        // console.log('GUESSED CHAR LIST: ', guessedChars);
+        // console.log('GUESSED WRONG : ', guessedWrongChars);
+        // console.log('FELGISSNINGAR: ', wrongGuesses);
+        // console.log("rätt bokstäver; ", guessedCorrectChars);
+        // console.log("NumOFCORRECT", numOfCorrect);
+        console.log("lost", lostGame);
+        console.log("won",wonPoints);
+        console.log("tried",attempt);
+        generateHangman()
+        checkIfItsGameOver()
+      };
+
+    })
 
 //funktion för att slumpa fram ett ord från countries listan och splitta ordet till en array
 
@@ -195,20 +206,40 @@ function handleGuessedChars(inputValue, listToCheck) {
   }
 }
 
+let guessedCorrectChars = [];
 // Hämtar varje GISSAD bokstav och jämför med CORRECT.
 function checkGuessed() {
   // Loopar fram varje bokstav som finns i det rätta ordet
 
   for (let i = 0; i < correctChars.length; i++) {
-    let isCorrect = false;
     // Testar varje GISSAD bokstav på ALLA plaster från CORRECT.
     for (let j = 0; j < guessedChars.length; j++) {
-      if (guessedChars[j] === correctChars[i]) {
+      if (correctChars[i] === guessedChars[j]) {
         updateCorrectChar(i);
-        isCorrect = true;
-      }
     }
-  }
+}
+}
+
+}
+let numOfCorrect = 0;
+
+function countRightChars () {
+
+    numOfCorrect = 0;
+for (let i =0; i< guessedChars.length; i++) {
+    console.log("correct chars:", guessedChars[i]);
+    for (let j =0; j< correctChars.length; j++) {
+        console.log("correct guessed", correctChars[j]);
+        if (correctChars[j] === guessedChars[i]) {
+            numOfCorrect++
+
+        }
+    }
+
+}
+if (numOfCorrect === correctChars.length) {
+    gameWon()
+}
 }
 
 // Skriv ut alla AVNÄNDA BOKSTÄVER
@@ -235,8 +266,12 @@ function updateCorrectChar(index) {
 
 // Skapar fram lika många LI element som bokstäver i CORRECT ord.
 function renderInitialCorrectTemplate() {
-  let template = document.querySelector('.word');
 
+  let template = document.querySelector('.word');
+    let allLi = document.querySelectorAll(".word li")
+    allLi.forEach((li) =>{
+        li.remove()
+    })
   correctChars.forEach((char) => {
     let listItem = document.createElement('li');
     template.appendChild(listItem);
@@ -281,8 +316,9 @@ renderInitialCorrectTemplate();
 // generera hangmans delar
 
 function generateHangman() {
-    for (let i = 0; i <= wrongGuesses-1; i++) {
+    for (let i = 0; i < wrongGuesses; i++) {
         document.querySelector('figure').classList.add(`${hangman[i]}`)
+        console.log("antal kroppsdelar", i);
     }
 }
 
@@ -290,12 +326,43 @@ function generateHangman() {
 
 // när alla rätt bokstäver är gissade
 
+function buttonStartNewGame () {
+    let button = document.createElement("button");
+    button.addEventListener("click", ()=> {
+        startAgain ()
+        document.querySelector("button").remove()
+    })
+    button.innerText = "Start a new game";
+    document.querySelector("main").appendChild(button)
+}
+
+function gameIsOver () {
+    let text = document.createElement("h2");
+    text.innerText = `Game over! Ordet vi sökte var: ${correctWord}`;
+    document.querySelector("main").insertAdjacentElement("afterbegin", text)
+    gameOver = true;
+    lostGame++
+    attempt++ 
+    uppdateCounters()
+}
+
+
+function gameWon () {
+    let text = document.createElement("h2");
+    text.innerText = "Grattis, du klarade det!";
+    document.querySelector("main").insertAdjacentElement("afterbegin", text)
+    buttonStartNewGame()
+    gameOver = true;
+    wonPoints++
+    attempt++
+    uppdateCounters()
+}
+
+
 function checkIfItsGameOver () {
 if (wrongGuesses >= 5) {
-    
-    alert("GAME OVER")
-    startAgain()
-    
+    buttonStartNewGame()
+    gameIsOver()
 }
 }
 
@@ -304,8 +371,26 @@ function startAgain () {
     availableChars = [];
     correctChars = [];
     wrongGuesses = 0;
+    document.querySelector("h2").remove()
     document.querySelector("figure").className = "";
     renderGuessedChars()
     randomizeWord()
-    
+    renderInitialCorrectTemplate()
+    gameOver = false;
+}
+
+let won = document.createElement("p" .className = "won")
+let lost = document.createElement("p" .className = "lost")
+let played = document.createElement("p" .className = "played")
+document.querySelector("footer").appendChild(won)
+document.querySelector("footer").appendChild(lost)
+document.querySelector("footer").appendChild(played)
+won.innerHTML = `Wins: ${wonPoints}`
+lost.innerHTML = `Losses: ${lostGame}`
+played.innerHTML = `Palayed: ${attempt}`
+
+function uppdateCounters () {
+    won.innerHTML = `Wins: ${wonPoints}`
+    lost.innerHTML = `lost: ${lostGame}`
+    played.innerHTML = `played: ${attempt}`
 }
