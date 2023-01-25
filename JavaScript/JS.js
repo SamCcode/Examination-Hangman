@@ -777,7 +777,7 @@ function handleHintClick(numOfClicks) {
   checkIfItsGameOver();
 
   let hint = document.createElement('p');
-  hintContainer.insertAdjacentElement('afterend', hint);
+  hintContainer.insertAdjacentElement('afterbegin', hint);
 
   let obj; // Listan som vi vill targeta
 
@@ -807,7 +807,7 @@ function handleHintClick(numOfClicks) {
 function resetHints() {
   let hints = document.querySelectorAll('.hint-container p');
   hints.forEach((item) => {
-    item.innerHTML = '';
+    item.remove();
   });
 }
 
