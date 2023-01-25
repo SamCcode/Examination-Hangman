@@ -283,19 +283,19 @@ function generateHardnessLevel(inputValue) {
   switch (inputValue) {
     case 'easy':
       hardnessLevel = 'easy';
-      easyList = countries.filter((word) => word.length <= 5);
+      easyList = countries.filter((obj) => obj.country.length <= 5);
       return easyList;
 
     case 'medium':
       hardnessLevel = 'medium';
       mediumList = countries.filter(
-        (word) => word.length > 5 && word.length <= 8
+        (obj) => obj.country.length > 5 && obj.country.length <= 8
       );
       return mediumList;
 
     case 'hard':
       hardnessLevel = 'hard';
-      hardList = countries.filter((word) => word.length > 8);
+      hardList = countries.filter((obj) => obj.country.length > 8);
       return hardList;
   }
 }
@@ -345,10 +345,11 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+let indexOfRandomizedWord;
 //funktion för att slumpa fram ett ord från countries listan och splitta ordet till en array
 function randomizeWord(list) {
   let index = Math.floor(Math.random() * list.length);
-  correctWord = list[index];
+  correctWord = list[index].country;
 
   console.log(correctWord);
   for (let i = 0; i < correctWord.length; i++) {
@@ -356,6 +357,7 @@ function randomizeWord(list) {
     console.log(correctWord.charAt(i));
   }
   console.log(correctChars);
+  indexOfRandomizedWord = index; // För användning i andra funktioner
 }
 
 randomizeWord(generateHardnessLevel(hardnessLevel)); // Startar på medium
@@ -545,13 +547,15 @@ function startAgain() {
   availableChars = [];
   correctChars = [];
   wrongGuesses = 0;
+  numOfClicks = 0;
   // document.querySelector('h2').remove();
   document.querySelector('figure').className = '';
   renderGuessedChars();
   randomizeWord(generateHardnessLevel(hardnessLevel));
   renderInitialCorrectTemplate();
   gameOver = false;
-  console.log('Efter START AGAIN', hasPopup);
+  resetHints();
+  createHints();
 }
 
 let won = document.createElement('p');
@@ -763,39 +767,67 @@ function errorPopupModule(message) {
 }
 
 startingPopup();
-
 let hintButton = document.createElement('button');
 let hintContainer = document.createElement('div');
 hintContainer.className = 'hint-container';
 let hint1 = document.createElement('p');
 let hint2 = document.createElement('p');
 let hint3 = document.createElement('p');
-
-hintButton.innerText = 'Sacrifice a guess for a hint!';
-// hint1.innerHTML = `Hint 1: ${numOfGuesses}`;
-// hint2.innerHTML = `Hint 2: ${numOfGuesses}`;
-// hint3.innerHTML = `Hint 3: ${numOfGuesses}`;
-
 hintContainer.appendChild(hint1);
 hintContainer.appendChild(hint2);
 hintContainer.appendChild(hint3);
-
 document.querySelector('main').appendChild(hintButton);
 document.querySelector('main').appendChild(hintContainer);
-
+hintButton.innerText = 'Sacrifice a guess for a hint!';
 let numOfClicks = 0;
 hintButton.addEventListener('click', (event) => {
   numOfClicks++;
   handleHintClick(numOfClicks);
 });
 
+function createHints() {
+  // hint1.innerHTML = `Hint 1: ${numOfGuesses}`;
+  // hint2.innerHTML = `Hint 2: ${numOfGuesses}`;
+  // hint3.innerHTML = `Hint 3: ${numOfGuesses}`;
+}
+
 // DU KAN INTE HINTA PÅ SISTA FÖRSÖKET
 function handleHintClick(numOfClicks) {
   wrongGuesses++;
   generateHangman();
   checkIfItsGameOver();
+  let obj; // Listan som vi vill targeta
+
+  if (hardnessLevel === 'easy') {
+    obj = easyList[indexOfRandomizedWord];
+  } else if (hardnessLevel === 'medium') {
+    obj = mediumList[indexOfRandomizedWord];
+  } else {
+    obj = hardList[indexOfRandomizedWord];
+  }
+
+  console.log('RÄTT OBJEKT ', obj);
+
   let hintList = document.querySelectorAll('.hint-container p');
-  hintList[numOfClicks - 1].innerHTML = `Hint ${numOfClicks}: ${numOfGuesses}`;
+
+  if (numOfClicks === 1) {
+    hintList[0].innerHTML = `THE WORD IS A COUNTRY`;
+  } else if (numOfClicks === 2) {
+    hintList[numOfClicks - 1].innerHTML = `COLOR OF THE FLAG IS: ${
+      Object.values(obj)[numOfClicks - 1]
+    }`;
+  } else {
+    hintList[numOfClicks - 1].innerHTML = `${
+      Object.values(obj)[numOfClicks - 1]
+    }`;
+  }
+}
+
+function resetHints() {
+  let hints = document.querySelectorAll('.hint-container p');
+  hints.forEach((item) => {
+    item.innerHTML = '';
+  });
 }
 
 // hintContainer.removeEventListener('click', (event) => {
