@@ -402,20 +402,26 @@ function startAgain() {
   console.log('Efter START AGAIN', hasPopup);
 }
 
-let won = document.createElement('p');
-let lost = document.createElement('p');
-let played = document.createElement('p');
-document.querySelector('footer').appendChild(won);
-document.querySelector('footer').appendChild(lost);
-document.querySelector('footer').appendChild(played);
-won.innerHTML = `Wins: ${wonPoints}`;
-lost.innerHTML = `lost: ${lostGame}`;
-played.innerHTML = `played: ${attempt}`;
+let won = document.createElement("p");
+won.className = 'won'
+let lost = document.createElement("p");
+lost.className = "lost"
+let played = document.createElement("p");
+played.className = "played"
+let container = document.createElement('div')
+container.className = "score"
+container.appendChild (won)
+container.appendChild (lost)
+container.appendChild (played)
+document.querySelector('main').appendChild(container);
+won.innerHTML = `WINS: ${wonPoints}`;
+lost.innerHTML = `LOST: ${lostGame}`;
+played.innerHTML = `PLAYED: ${attempt}`;
 
 function uppdateCounters() {
-  won.innerHTML = `Wins: ${wonPoints}`;
-  lost.innerHTML = `lost: ${lostGame}`;
-  played.innerHTML = `played: ${attempt}`;
+  won.innerHTML = `WINS: ${wonPoints}`;
+  lost.innerHTML = `LOST: ${lostGame}`;
+  played.innerHTML = `PLAYED: ${attempt}`;
 }
 
 // Popup med meddelande om Vinst + Knapp som startar nytt resettat spel
