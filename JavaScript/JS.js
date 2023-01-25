@@ -1,8 +1,8 @@
-// Arrays vi behöver
++// Arrays vi behöver
 
 // Array för ord
 
-const countries = [
+const countries = [  
   {
     country: 'FINLAND',
     flag: 'BLUE AND WHITE',
