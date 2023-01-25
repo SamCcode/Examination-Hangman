@@ -40,7 +40,7 @@ const countries = [
   'NORDKOREA',
   'QUATAR',
   'OMAN',
-  'JAPAN'
+  'JAPAN',
 ];
 
 // Array för bokstäver
@@ -402,17 +402,17 @@ function startAgain() {
   console.log('Efter START AGAIN', hasPopup);
 }
 
-let won = document.createElement("p");
-won.className = 'won'
-let lost = document.createElement("p");
-lost.className = "lost"
-let played = document.createElement("p");
-played.className = "played"
-let container = document.createElement('div')
-container.className = "score"
-container.appendChild (won)
-container.appendChild (lost)
-container.appendChild (played)
+let won = document.createElement('p');
+won.className = 'won';
+let lost = document.createElement('p');
+lost.className = 'lost';
+let played = document.createElement('p');
+played.className = 'played';
+let container = document.createElement('div');
+container.className = 'score';
+container.appendChild(won);
+container.appendChild(lost);
+container.appendChild(played);
 document.querySelector('main').appendChild(container);
 won.innerHTML = `WINS: ${wonPoints}`;
 lost.innerHTML = `LOST: ${lostGame}`;
@@ -611,3 +611,47 @@ function errorPopupModule(message) {
 }
 
 startingPopup();
+
+let hintButton = document.createElement('button');
+let hintContainer = document.createElement('div');
+hintContainer.className = 'hint-container';
+let hint1 = document.createElement('p');
+let hint2 = document.createElement('p');
+let hint3 = document.createElement('p');
+
+hintButton.innerText = 'Sacrifice a guess for a hint!';
+// hint1.innerHTML = `Hint 1: ${numOfGuesses}`;
+// hint2.innerHTML = `Hint 2: ${numOfGuesses}`;
+// hint3.innerHTML = `Hint 3: ${numOfGuesses}`;
+
+hintContainer.appendChild(hint1);
+hintContainer.appendChild(hint2);
+hintContainer.appendChild(hint3);
+
+document.querySelector('main').appendChild(hintButton);
+document.querySelector('main').appendChild(hintContainer);
+
+let numOfClicks = 0;
+hintButton.addEventListener('click', (event) => {
+  numOfClicks++;
+  handleHintClick(numOfClicks);
+});
+
+// DU KAN INTE HINTA PÅ SISTA FÖRSÖKET
+function handleHintClick(numOfClicks) {
+  wrongGuesses++;
+  generateHangman();
+  checkIfItsGameOver();
+  let hintList = document.querySelectorAll('.hint-container p');
+  hintList[numOfClicks - 1].innerHTML = `Hint ${numOfClicks}: ${numOfGuesses}`;
+}
+
+// hintContainer.removeEventListener('click', (event) => {
+//   wrongGuesses++;
+//   generateHangman();
+//   checkIfItsGameOver();
+// });
+
+function useHint(boolean) {}
+
+// Ett klick
