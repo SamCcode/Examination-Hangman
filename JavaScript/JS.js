@@ -7,15 +7,15 @@ const countries = [
   {
     country:'FINLAND',
     flag: 'BLUE AND WHITE',
-    hint: 'LOVES TO SAUNA'
+    hint: 'SAUNA'
   },{
     country:'NEDERLÄNDERNA',
     flag: 'RED, WHITE AND BLUE',
-    hint: 'LOVES TULIPS'
+    hint: 'TULIPS'
   },{
     country:'BELGIEN',
     flag: 'BLACK, YELLOW AND RED',
-    hint: 'LOVES CHOCOLATE'
+    hint: 'CHOCOLATE'
   },{
     country:'BULGARIEN',
     flag: 'WHITE, GREEN AND RED',
@@ -23,23 +23,23 @@ const countries = [
   },{
     country:'SPANIEN',
     flag: 'RED AND YELLOW',
-    hint: 'LOVES TO SIESTA'
+    hint: 'TO SIESTA'
   },{
     country:'IRLAND',
     flag: 'GREEN, WHITE AND ORANGE',
-    hint: 'LOVES GUINNESS'
+    hint: 'GUINNESS'
   },{
     country:'ITALIEN',
     flag:  'GREEN, WHITE AND RED',
-    hint: 'LOVES PIZZA'
+    hint: 'PIZZA'
   },{
     country:'ÖSTERRIKE',
     flag:  'RED AND WHITE',
-    hint: 'LOVES TO SKI'
+    hint: 'SKI'
   },{
     country:'GREKLAND',
     flag:  'BLUE AND WHITE',
-    hint: 'LOVES OLIVES'
+    hint: 'OLIVES'
   },{
     country:'KROATIEN',
     flag:  'RED, WHITE AND BLUE',
@@ -47,7 +47,7 @@ const countries = [
   },{
     country:'CYPERN',
     flag:  'WHITE AND ORANGE',
-    hint: 'LOVES AFRODITE'
+    hint: 'AFRODITE'
   },{
     country:'LETTLAND',
     flag:  'RED AND WHITE',
@@ -109,11 +109,11 @@ const countries = [
   {
     country:'TJECKIEN',
     flag:  'BLUE, WHITE AND RED',
-    hint: 'LOVES BEER'
+    hint: 'BEER'
   },{
     country:'UNGERN',
     flag:  'RED, WHITE AND GREEN',
-    hint: 'LOVES GOULASH'
+    hint: 'GOULASH'
   },
   {
     country:'ESTLAND',
@@ -123,16 +123,16 @@ const countries = [
   {
     country:'IRAK',
     flag:  'RED, WHITE AND BLACK',
-    hint: 'THE NAME MEANS TWO VEINS'
+    hint: 'MEANS TWO VEINS'
   },
   {
     country:'IRAN',
     flag:  'GREEN, WHITE AND RED',
-    hint: 'LOVES CARPETS'
+    hint: 'CARPETS'
   },{
     country:'INDIEN',
     flag:  'ORANGE, WHITE AND GREEN',
-    hint: 'LOVES CURRY'
+    hint: 'CURRY'
   },{
     country:'ISRAEL',
     flag:  'WHITE AND BLUE',
@@ -140,15 +140,15 @@ const countries = [
   },{
     country:'KINA',
     flag:  'RED AND YELLOW',
-    hint: 'LOVES RICE'
+    hint: 'RICE'
   },{
     country:'LAOS',
     flag:  'RED, BLUE AND WHITE',
-    hint: 'FORMER KINGDOM OF LAN XANG'
+    hint: 'THE FORMER KINGDOM OF LAN XANG'
   },{
     country:'NEPAL',
     flag:  'RED, BLUE AND WHITE',
-    hint: 'MOUNTAINS'
+    hint: 'GOT GREAT MOUNTAINS'
   },{
     country:'NORDKOREA',
     flag:  'BLUE, WHITE AND RED',
@@ -160,12 +160,12 @@ const countries = [
   },{
     country:'OMAN',
     flag:  'RED, WHITE AND GREEN',
-    hint: 'TO EASY TO GET A HINT'
+    hint: 'TO SHORT TO GET A HINT'
   },
   {
     country:'JAPAN',
     flag:  'WHITE AND RED',
-    hint: 'SUSHI'
+    hint: 'LOVES SUSHI'
   },
 
 ];
