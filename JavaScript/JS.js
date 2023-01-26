@@ -1,5 +1,11 @@
 // Arrays vi behöver
 
+// SELECT ALL - Same variable name
+// Ctrl + Shift + L
+
+// LIST OF SHORTCUTS VS CODE
+// https://gist.github.com/cleary/d168e301429c0305c49d97907796c72d
+
 // Array för ord
 
 const countries = [
