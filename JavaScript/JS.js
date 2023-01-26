@@ -15,7 +15,7 @@
 // KOMMENTERA FUNKTIONER
 // LÄGG UT FUNKTIONER I BLOCK
 // SAMLA ALLA FUNCTION CALLS PÅ BOTTEN.
-
+// Mer text
 // Array för ord
 const countries = [
   {
