@@ -20,6 +20,16 @@ main figure {
     padding: 1rem;
 }
 
+.hangman-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.figure2 {
+    transform: scaleX(-1);
+
+}
 main figure svg > * {
     opacity: 0;
 }
@@ -30,6 +40,14 @@ main figure.head     svg #head      { opacity: 1; }
 main figure.body     svg #body      { opacity: 1; }
 main figure.arms     svg #arms      { opacity: 1; }
 main figure.legs     svg #legs      { opacity: 1; }
+
+main figure svg #ground2             { opacity: 1; }
+main figure.scaffold2 svg #scaffold2  { opacity: 1; }
+main figure.head2     svg #head2      { opacity: 1; }
+main figure.body2     svg #body2      { opacity: 1; }
+main figure.arms2     svg #arms2      { opacity: 1; }
+main figure.legs2     svg #legs2      { opacity: 1; }
+
 
 footer {
     display: flex;
