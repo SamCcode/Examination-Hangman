@@ -352,8 +352,6 @@ let usedWrongCharsList = [];
 
 let numOfCorrectChars = 0;
 
-
-
 // Array för antal försök/kroppsdelar
 let hangmanParts = ['scaffold', 'head', 'body', 'arms', 'legs'];
 
@@ -365,6 +363,7 @@ let numOfLosses = 0;
 let winRate = 0;
 let numOfGamesPlayed = 0;
 let numOfHintClicks = 0;
+let numOfHintsUsed = 0;
 let numOfHangmans = 1;
 let gameOver = false;
 let hasPopup = true;
@@ -396,39 +395,6 @@ function generateHardnessLevel(inputValue) {
   }
 }
 
-
-
-// Tracka keypress hela tiden. Uppdatera senaste bokstav
-
-document.addEventListener('keydown', (event) => {
-  if (hasPopup === false) {
-    if (gameOver === false) {
-      if (window.event) {
-        input = event.key.toUpperCase();
-        numOfGuesses++;
-      }
-
-      if (difficulty === 'expert') {
-        compareInput(input, correctCharsList);
-        // renderGuessedChars();
-        checkGuessed();
-        generateWrongGuessedChars();
-        countRightChars();
-        generateHangman();
-        checkIfItsGameOver();
-      } else {
-        compareInput(input, correctCharsList);
-        renderGuessedChars();
-        checkGuessed();
-        generateWrongGuessedChars();
-        countRightChars();
-        generateHangman();
-        checkIfItsGameOver();
-      }
-    }
-  }
-});
-
 //funktion för att slumpa fram ett ord från countries listan och splitta ordet till en array
 function randomizeWord(list) {
   let index = Math.floor(Math.random() * list.length);
@@ -440,7 +406,6 @@ function randomizeWord(list) {
   indexOfRandomizedWord = index; // För användning i andra funktioner
 }
 
-randomizeWord(generateHardnessLevel(difficulty)); // Startar på medium
 // Kollar så att användaren skriver en BOKSTAV
 function compareInput(inputValue) {
   let hasMatched = false;
@@ -566,11 +531,12 @@ function generateWrongGuessedChars() {
   });
 
   // Felgissningar är total längden av bokstäver i WRONG GUESSED.
-  wrongGuesses = usedWrongCharsList.length;
+  wrongGuesses = numOfHintsUsed + usedWrongCharsList.length;
 }
 
-generateWrongChars();
-renderInitialCorrectTemplate();
+// function calcWrongGuesses (){
+//   wrongGuesses = wrongGuesses + usedWrongCharsList.length;
+// }
 
 // generera hangmans delar
 
@@ -578,6 +544,7 @@ function generateHangman() {
   for (let i = 0; i < wrongGuesses; i++) {
     document.querySelector('figure').classList.add(`${hangmanParts[i]}`);
   }
+  
 }
 
 // spelet är över vid vinst
@@ -588,7 +555,7 @@ function generateHangman() {
 //   let button = document.createElement('button');
 //   button.addEventListener('click', () => {
 //     startAgain();
-//     document.querySelector('button').remove();
+//     document.querySelector('button').remove();renderGuessedChars
 //   });
 //   button.innerText = 'Start a new game';
 //   document.querySelector('main').appendChild(button);
@@ -617,7 +584,6 @@ function checkIfHangmanIsDead() {
     insertAnotherHangman();
   }
 }
-
 function insertAnotherHangman() {}
 
 function checkIfItsGameOver() {
@@ -630,6 +596,8 @@ function startAgain() {
   usedCharsList = [];
   availableChars = [];
   correctCharsList = [];
+  usedWrongCharsList = [];
+  numOfHintsUsed = 0;
   wrongGuesses = 0;
   numOfHintClicks = 0;
   // document.querySelector('h2').remove();
@@ -639,34 +607,19 @@ function startAgain() {
   renderInitialCorrectTemplate();
   gameOver = false;
   resetHints();
-  createHints();
 }
 
-let won = document.createElement('p');
-won.className = 'won';
-let lost = document.createElement('p');
-lost.className = 'lost';
-let played = document.createElement('p');
-played.className = 'played';
-let winRatio = document.createElement('p');
-winRatio.className = 'winRatio';
-let container = document.createElement('div');
-container.className = 'score';
-container.appendChild(won);
-container.appendChild(lost);
-container.appendChild(played);
-container.appendChild(winRatio);
-document.querySelector('main').appendChild(container);
-won.innerHTML = `WINS: ${numOfWins}`;
-lost.innerHTML = `LOST: ${numOfLosses}`;
-played.innerHTML = `PLAYED: ${numOfGamesPlayed}`;
-winRatio.innerHTML = `WIN RATIO: ${winRate}%`;
+
 
 function updateCounters() {
+  let won = document.querySelector('.won');
   won.innerHTML = `WINS: ${numOfWins}`;
+  let lost = document.querySelector('.lost');
   lost.innerHTML = `LOST: ${numOfLosses}`;
+  let played = document.querySelector('.played');
   played.innerHTML = `PLAYED: ${numOfGamesPlayed}`;
-  winRatio.innerHTML = `WIN RATIO: ${winRate}%`;
+  let winRateEle = document.querySelector('.winRate')
+  winRateEle.innerHTML = `WIN RATIO: ${winRate}%`;
 }
 
 // Popup med meddelande om Vinst + Knapp som startar nytt resettat spel
@@ -881,36 +834,18 @@ function errorPopupModule(message) {
   document.querySelector('main').appendChild(module);
 }
 
-startingPopup();
-let hintButton = document.createElement('button');
-let hintContainer = document.createElement('div');
-hintContainer.className = 'hint3-container';
-
-document.querySelector('main').appendChild(hintButton);
-document.querySelector('main').appendChild(hintContainer);
-hintButton.innerText = 'Sacrifice a guess for a hint3!';
-
-hintButton.addEventListener('click', (event) => {
-  numOfHintClicks++;
-  if (numOfHintClicks <= 3) {
-    handleHintClick(numOfHintClicks);
-  }
-});
-
-function createHints() {
-  // hint1.innerHTML = `Hint 1: ${numOfGuesses}`;
-  // hint2.innerHTML = `Hint 2: ${numOfGuesses}`;
-  // hint3.innerHTML = `Hint 3: ${numOfGuesses}`;
-}
-
 // DU KAN INTE HINTA PÅ SISTA FÖRSÖKET
 function handleHintClick(numOfHintClicks) {
-  wrongGuesses++;
-  generateHangman();
-  checkIfItsGameOver();
+  if (numOfHintClicks < 4) {
+    numOfHintsUsed++;
+    wrongGuesses = numOfHintsUsed + usedWrongCharsList.length;
+    generateHangman();
+    checkIfItsGameOver();
+}
 
-  let hint3 = document.createElement('p');
-  hintContainer.insertAdjacentElement('afterbegin', hint3);
+  let hint = document.createElement('p');
+  let hintContainer = document.querySelector('.hint-container')
+  hintContainer.insertAdjacentElement('afterbegin', hint);
 
   let obj; // Listan som vi vill targeta
 
@@ -924,35 +859,12 @@ function handleHintClick(numOfHintClicks) {
   } else {
     obj = expertWordsList[indexOfRandomizedWord];
   }
-
-  // let hintList = document.querySelectorAll('.hint3-container p');
-
-  // GENERERA P TAGG MED RÄTT HINT
-  if (numOfHintClicks === 1) {
-    hint3.innerHTML = `THE WORD IS A COUNTRY`;
-  } else if (numOfHintClicks === 2) {
-    hint3.innerHTML = `COLOR OF THE hint2: ${
-      Object.values(obj)[numOfHintClicks - 1]
-    }`;
-  } else {
-    hint3.innerHTML = `${Object.values(obj)[numOfHintClicks - 1]}`;
-  }
-
-  if (difficulty === 'expert') {
-    if (numOfHintClicks === 1) {
-      hint3.innerHTML = `We took you for an expert..`;
-    } else if (numOfHintClicks === 2) {
-      hint3.innerHTML = `COLOR OF THE hint2: ${
-        Object.values(obj)[numOfHintClicks - 1]
-      }`;
-    } else {
-      hint3.innerHTML = `${Object.values(obj)[numOfHintClicks - 1]}`;
-    }
-  }
+  
+  hint.innerHTML = `${Object.values(obj)[numOfHintClicks + 1]}`;
 }
 
 function resetHints() {
-  let hints = document.querySelectorAll('.hint3-container p');
+  let hints = document.querySelectorAll('.hint-container p');
   hints.forEach((item) => {
     item.remove();
   });
@@ -965,6 +877,101 @@ function calcWinPercent() {
     winRate = Math.floor((numOfWins / numOfGamesPlayed) * 100);
   }
 }
+
+// Tracka keypress hela tiden. Uppdatera senaste bokstav
+
+document.addEventListener('keydown', (event) => {
+
+  if (hasPopup === false) {
+    if (gameOver === false) {
+      if (window.event) {
+        input = event.key.toUpperCase();
+        numOfGuesses++;
+      }
+
+      if (difficulty === 'expert') {
+        compareInput(input, correctCharsList);
+        // renderGuessedChars();
+        checkGuessed();
+        generateWrongGuessedChars();
+        countRightChars();
+        generateHangman();
+        checkIfItsGameOver();
+      } else {
+        compareInput(input, correctCharsList);
+        renderGuessedChars();
+        checkGuessed();
+        generateWrongGuessedChars();
+        countRightChars();
+        generateHangman();
+        checkIfItsGameOver();
+      }
+    }
+  }
+});
+
+//Hint button
+function generateHintButton() {
+  let hintButton = document.createElement('button');
+  let hintContainer = document.createElement('div');
+  hintContainer.className = 'hint-container';
+
+  document.querySelector('main').appendChild(hintButton);
+  document.querySelector('main').appendChild(hintContainer);
+  hintButton.innerText = 'Sacrifice a guess for a hint!';
+
+  hintButton.addEventListener('click', (event) => {
+    numOfHintClicks++;
+    if (numOfHintClicks <= 3) {
+      handleHintClick(numOfHintsUsed);
+    }
+});
+}
+
+// Scoreboard UI
+function generateScoreboard() {
+  let won = document.createElement('p');
+  won.className = 'won';
+  let lost = document.createElement('p');
+  lost.className = 'lost';
+  let played = document.createElement('p');
+  played.className = 'played';
+  let winRateEle = document.createElement('p');
+  winRateEle.className = 'winRate';
+  let container = document.createElement('div');
+  container.className = 'score';
+  container.appendChild(won);
+  container.appendChild(lost);
+  container.appendChild(played);
+  container.appendChild(winRateEle);
+  document.querySelector('main').appendChild(container);
+  won.innerHTML = `WINS: ${numOfWins}`;
+  lost.innerHTML = `LOST: ${numOfLosses}`;
+  played.innerHTML = `PLAYED: ${numOfGamesPlayed}`;
+  winRateEle.innerHTML = `WIN RATIO: ${winRate}%`;
+}
+
+//Genererar hintknappen
+generateHintButton();
+
+//Genererar Scoreboard till UI
+generateScoreboard();
+
+//Genererar fel bokstäver baserat på 'correctWord'
+generateWrongChars();
+
+//Genererar blanks för det korrekta ordet
+renderInitialCorrectTemplate();
+
+//Popup för att välja svårighetsgrad
+startingPopup();
+
+//Randomgenererar ord från 'difficulty'
+randomizeWord(generateHardnessLevel(difficulty)); // Startar på medium
+
+
+
+
 
 // hintContainer.removeEventListener('click', (event) => {
 //   wrongGuesses++;
