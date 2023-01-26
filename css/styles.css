@@ -37,6 +37,10 @@ footer {
     font-size: 2rem;
 }
 
+footer p {
+    text-align: center;
+}
+
 footer ul.nomatch {
     display: flex;
     margin: 0;
