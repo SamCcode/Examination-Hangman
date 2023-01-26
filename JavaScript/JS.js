@@ -15,198 +15,237 @@
 // KOMMENTERA FUNKTIONER
 // LÄGG UT FUNKTIONER I BLOCK
 // SAMLA ALLA FUNCTION CALLS PÅ BOTTEN.
-// Mer text
+// Mer text 
 // Array för ord
+
 const countries = [
   {
-    country: 'FINLAND',
-    flag: 'BLUE AND WHITE',
-    hint: 'SAUNA',
+    word: 'FINLAND',
+    hint1: 'COUNTRY',
+    hint2: 'BLUE AND WHITE',
+    hint3: 'SAUNA',
   },
   {
-    country: 'NEDERLÄNDERNA',
-    flag: 'RED, WHITE AND BLUE',
-    hint: 'TULIPS',
+    word: 'NEDERLÄNDERNA',
+    hint1: 'COUNTRY',
+    hint2: 'RED, WHITE AND BLUE',
+    hint3: 'TULIPS',
   },
   {
-    country: 'BELGIEN',
-    flag: 'BLACK, YELLOW AND RED',
-    hint: 'CHOCOLATE',
+    word: 'BELGIEN',
+    hint1: 'COUNTRY',
+    hint2: 'BLACK, YELLOW AND RED',
+    hint3: 'CHOCOLATE',
   },
   {
-    country: 'BULGARIEN',
-    flag: 'WHITE, GREEN AND RED',
-    hint: 'BORDER TO ROMANIA',
+    word: 'BULGARIEN',
+    hint1: 'COUNTRY',
+    hint2: 'WHITE, GREEN AND RED',
+    hint3: 'BORDER TO ROMANIA',
   },
   {
-    country: 'SPANIEN',
-    flag: 'RED AND YELLOW',
-    hint: 'TO SIESTA',
+    word: 'SPANIEN',
+    hint1: 'COUNTRY',
+    hint2: 'RED AND YELLOW',
+    hint3: 'TO SIESTA',
   },
   {
-    country: 'IRLAND',
-    flag: 'GREEN, WHITE AND ORANGE',
-    hint: 'GUINNESS',
+    word: 'IRLAND',
+    hint1: 'COUNTRY',
+    hint2: 'GREEN, WHITE AND ORANGE',
+    hint3: 'GUINNESS',
   },
   {
-    country: 'ITALIEN',
-    flag: 'GREEN, WHITE AND RED',
-    hint: 'PIZZA',
+    word: 'ITALIEN',
+    hint1: 'COUNTRY',
+    hint2: 'GREEN, WHITE AND RED',
+    hint3: 'PIZZA',
   },
   {
-    country: 'ÖSTERRIKE',
-    flag: 'RED AND WHITE',
-    hint: 'SKI',
+    word: 'ÖSTERRIKE',
+    hint1: 'COUNTRY',
+    hint2: 'RED AND WHITE',
+    hint3: 'SKI',
   },
   {
-    country: 'GREKLAND',
-    flag: 'BLUE AND WHITE',
-    hint: 'OLIVES',
+    word: 'GREKLAND',
+    hint1: 'COUNTRY',
+    hint2: 'BLUE AND WHITE',
+    hint3: 'OLIVES',
   },
   {
-    country: 'KROATIEN',
-    flag: 'RED, WHITE AND BLUE',
-    hint: 'STONY BEACHES',
+    word: 'KROATIEN',
+    hint1: 'COUNTRY',
+    hint2: 'RED, WHITE AND BLUE',
+    hint3: 'STONY BEACHES',
   },
   {
-    country: 'CYPERN',
-    flag: 'WHITE AND ORANGE',
-    hint: 'AFRODITE',
+    word: 'CYPERN',
+    hint1: 'COUNTRY',
+    hint2: 'WHITE AND ORANGE',
+    hint3: 'AFRODITE',
   },
   {
-    country: 'LETTLAND',
-    flag: 'RED AND WHITE',
-    hint: 'A EASY COUNTRY',
+    word: 'LETTLAND',
+    hint1: 'COUNTRY',
+    hint2: 'RED AND WHITE',
+    hint3: 'A EASY COUNTRY',
   },
   {
-    country: 'LITAUEN',
-    flag: 'YELLOW, GREEN AND RED',
-    hint: 'KNOWN AS THE PEARL OF THE BALTIC SEA',
+    word: 'LITAUEN',
+    hint1: 'COUNTRY',
+    hint2: 'YELLOW, GREEN AND RED',
+    hint3: 'KNOWN AS THE PEARL OF THE BALTIC SEA',
   },
   {
-    country: 'LUXENBURG',
-    flag: 'RED, WHITE AND BLUE',
-    hint: 'A TINY COUNTRY',
+    word: 'LUXENBURG',
+    hint1: 'COUNTRY',
+    hint2: 'RED, WHITE AND BLUE',
+    hint3: 'A TINY COUNTRY',
   },
   {
-    country: 'MALTA',
-    flag: 'RED AND WHITE',
-    hint: 'THE FAMOUS CITY OF MDINA',
+    word: 'MALTA',
+    hint1: 'COUNTRY',
+    hint2: 'RED AND WHITE',
+    hint3: 'THE FAMOUS CITY OF MDINA',
   },
   {
-    country: 'PORTUGAL',
-    flag: 'GREEN AND RED',
-    hint: 'CRISTIANO RONALDO',
+    word: 'PORTUGAL',
+    hint1: 'COUNTRY',
+    hint2: 'GREEN AND RED',
+    hint3: 'CRISTIANO RONALDO',
   },
   {
-    country: 'POLEN',
-    flag: 'RED AND WHITE',
-    hint: 'GREAT WORKERS',
+    word: 'POLEN',
+    hint1: 'COUNTRY',
+    hint2: 'RED AND WHITE',
+    hint3: 'GREAT WORKERS',
   },
   {
-    country: 'FRANKRIKE',
-    flag: 'BLUE, WHITE AND RED',
-    hint: 'MOST TIMEZONES IN THE WORLD',
+    word: 'FRANKRIKE',
+    hint1: 'COUNTRY',
+    hint2: 'BLUE, WHITE AND RED',
+    hint3: 'MOST TIMEZONES IN THE WORLD',
   },
   {
-    country: 'RUMÄNIEN',
-    flag: 'BLUE, YELLOW AND RED',
-    hint: 'RIVER DONAU RUNS THRU THIS COUNTRY',
+    word: 'RUMÄNIEN',
+    hint1: 'COUNTRY',
+    hint2: 'BLUE, YELLOW AND RED',
+    hint3: 'RIVER DONAU RUNS THRU THIS COUNTRY',
   },
   {
-    country: 'SVERIGE',
-    flag: 'BLUE AND YELLOW',
-    hint: 'IKEA',
+    word: 'SVERIGE',
+    hint1: 'COUNTRY',
+    hint2: 'BLUE AND YELLOW',
+    hint3: 'IKEA',
   },
   {
-    country: 'TYSKLAND',
-    flag: 'BLACK, RED AND YELLOW',
-    hint: 'CURRYWURST',
+    word: 'TYSKLAND',
+    hint1: 'COUNTRY',
+    hint2: 'BLACK, RED AND YELLOW',
+    hint3: 'CURRYWURST',
   },
   {
-    country: 'SLOVAKIEN',
-    flag: 'WHITE, BLUE AND RED',
-    hint: 'BECAME INDEPENDENT 1993',
+    word: 'SLOVAKIEN',
+    hint1: 'COUNTRY',
+    hint2: 'WHITE, BLUE AND RED',
+    hint3: 'BECAME INDEPENDENT 1993',
   },
   {
-    country: 'SLOVENIEN',
-    flag: 'WHITE, BLUE AND RED',
-    hint: 'LAKE BLED',
+    word: 'SLOVENIEN',
+    hint1: 'COUNTRY',
+    hint2: 'WHITE, BLUE AND RED',
+    hint3: 'LAKE BLED',
   },
   {
-    country: 'DANMARK',
-    flag: 'RED AND WHITE',
-    hint: 'PÖLSE',
+    word: 'DANMARK',
+    hint1: 'COUNTRY',
+    hint2: 'RED AND WHITE',
+    hint3: 'PÖLSE',
   },
   {
-    country: 'TJECKIEN',
-    flag: 'BLUE, WHITE AND RED',
-    hint: 'BEER',
+    word: 'TJECKIEN',
+    hint1: 'COUNTRY',
+    hint2: 'BLUE, WHITE AND RED',
+    hint3: 'BEER',
   },
   {
-    country: 'UNGERN',
-    flag: 'RED, WHITE AND GREEN',
-    hint: 'GOULASH',
+    word: 'UNGERN',
+    hint1: 'COUNTRY',
+    hint2: 'RED, WHITE AND GREEN',
+    hint3: 'GOULASH',
   },
   {
-    country: 'ESTLAND',
-    flag: 'BLUE, BLACK AND WHITE',
-    hint: 'HOME OF 2000 ISLANDS',
+    word: 'ESTLAND',
+    hint1: 'COUNTRY',
+    hint2: 'BLUE, BLACK AND WHITE',
+    hint3: 'HOME OF 2000 ISLANDS',
   },
   {
-    country: 'IRAK',
-    flag: 'RED, WHITE AND BLACK',
-    hint: 'MEANS TWO VEINS',
+    word: 'IRAK',
+    hint1: 'COUNTRY',
+    hint2: 'RED, WHITE AND BLACK',
+    hint3: 'MEANS TWO VEINS',
   },
   {
-    country: 'IRAN',
-    flag: 'GREEN, WHITE AND RED',
-    hint: 'CARPETS',
+    word: 'IRAN',
+    hint1: 'COUNTRY',
+    hint2: 'GREEN, WHITE AND RED',
+    hint3: 'CARPETS',
   },
   {
-    country: 'INDIEN',
-    flag: 'ORANGE, WHITE AND GREEN',
-    hint: 'CURRY',
+    word: 'INDIEN',
+    hint1: 'COUNTRY',
+    hint2: 'ORANGE, WHITE AND GREEN',
+    hint3: 'CURRY',
   },
   {
-    country: 'ISRAEL',
-    flag: 'WHITE AND BLUE',
-    hint: 'HOME OF JERUSALEM',
+    word: 'ISRAEL',
+    hint1: 'COUNTRY',
+    hint2: 'WHITE AND BLUE',
+    hint3: 'HOME OF JERUSALEM',
   },
   {
-    country: 'KINA',
-    flag: 'RED AND YELLOW',
-    hint: 'RICE',
+    word: 'KINA',
+    hint1: 'COUNTRY',
+    hint2: 'RED AND YELLOW',
+    hint3: 'RICE',
   },
   {
-    country: 'LAOS',
-    flag: 'RED, BLUE AND WHITE',
-    hint: 'THE FORMER KINGDOM OF LAN XANG',
+    word: 'LAOS',
+    hint1: 'COUNTRY',
+    hint2: 'RED, BLUE AND WHITE',
+    hint3: 'THE FORMER KINGDOM OF LAN XANG',
   },
   {
-    country: 'NEPAL',
-    flag: 'RED, BLUE AND WHITE',
-    hint: 'GOT GREAT MOUNTAINS',
+    word: 'NEPAL',
+    hint1: 'COUNTRY',
+    hint2: 'RED, BLUE AND WHITE',
+    hint3: 'GOT GREAT MOUNTAINS',
   },
   {
-    country: 'NORDKOREA',
-    flag: 'BLUE, WHITE AND RED',
-    hint: 'KIM JONG-UN',
+    word: 'NORDKOREA',
+    hint1: 'COUNTRY',
+    hint2: 'BLUE, WHITE AND RED',
+    hint3: 'KIM JONG-UN',
   },
   {
-    country: 'QUATAR',
-    flag: 'BURGUNDY AND WHITE',
-    hint: 'LOVES TO SAUNA',
+    word: 'QUATAR',
+    hint1: 'COUNTRY',
+    hint2: 'BURGUNDY AND WHITE',
+    hint3: 'LOVES TO SAUNA',
   },
   {
-    country: 'OMAN',
-    flag: 'RED, WHITE AND GREEN',
-    hint: 'TO SHORT TO GET A HINT',
+    word: 'OMAN',
+    hint1: 'COUNTRY',
+    hint2: 'RED, WHITE AND GREEN',
+    hint3: 'TO SHORT TO GET A HINT',
   },
   {
-    country: 'JAPAN',
-    flag: 'WHITE AND RED',
-    hint: 'LOVES SUSHI',
+    word: 'JAPAN',
+    hint1: 'COUNTRY',
+    hint2: 'WHITE AND RED',
+    hint3: 'LOVES SUSHI',
   },
 ];
 
@@ -243,17 +282,6 @@ let alphabet = [
   'Ö',
 ];
 
-let numOfGuesses = 0;
-
-// Array för gissade bokstäver
-let guessedChars = [];
-
-// Array för kvarstående bokstäver
-let availableChars = [];
-
-// Array för korrekta bokstäver
-let correctChars = [];
-
 let wrongChars = [
   'A',
   'B',
@@ -286,67 +314,90 @@ let wrongChars = [
   'Ö',
 ];
 
-let expertList = [
+let difficulty = 'medium';
+
+let easyWordsList = []; 
+let mediumWordsList = [];
+let hardWordsList = [];
+let expertWordsList = [
   {
-    country: 'JDIOWAMDWAODWAHI',
-    flag: 'Still trying this?..',
-    hint: 'Stop killing people',
+    word: 'aoisfhnweg',
+    hint1: 'this is hard',
+    hint2: 'Still trying this?..',
+    hint3: 'Stop killing people',
   },
   {
-    country: 'DLPWAMONDWIDWJIQDJW',
-    flag: 'Still trying this?..',
-    hint: 'Stop killing people',
+    word: 'awfouohbefn',
+    hint1: 'this is hard',
+    hint2: 'Still trying this?..',
+    hint3: 'Stop killing people',
   },
 ];
 
-let hardnessLevel = 'medium';
+let input = '';
 
-let guessedWrongChars = [];
+// Array för använda bokstäver
+let usedCharsList = [];
 
-let easyList = [];
-let mediumList = [];
-let hardList = [];
-
-function generateHardnessLevel(inputValue) {
-  switch (inputValue) {
-    case 'easy':
-      hardnessLevel = 'easy';
-      easyList = countries.filter((obj) => obj.country.length <= 5);
-      return easyList;
-
-    case 'medium':
-      hardnessLevel = 'medium';
-      mediumList = countries.filter(
-        (obj) => obj.country.length > 5 && obj.country.length <= 8
-      );
-      return mediumList;
-
-    case 'hard':
-      hardnessLevel = 'hard';
-      hardList = countries.filter((obj) => obj.country.length > 8);
-      return hardList;
-
-    case 'expert':
-      hardnessLevel = 'expert';
-      // Krävs inget filter, denna baseras inte på Countries.
-      return expertList;
-  }
-}
+// Array för kvarstående bokstäver
+let availableChars = []; //Potentiellt onödig
 
 // Sträng för korrekt ord
 let correctWord = '';
 
-// Array för antal försök/kroppsdelar
-let hangman = ['scaffold', 'head', 'body', 'arms', 'legs'];
+// Array för korrekta bokstäver
+let correctCharsList = [];
 
+let usedWrongCharsList = [];
+
+let numOfCorrectChars = 0;
+
+
+
+// Array för antal försök/kroppsdelar
+let hangmanParts = ['scaffold', 'head', 'body', 'arms', 'legs'];
+
+let indexOfRandomizedWord;
+let numOfGuesses = 0;
 let wrongGuesses = 0;
-let wonPoints = 0;
-let lostGame = 0;
-let winPercent = 0;
-let attempt = 0;
-let input = '';
+let numOfWins = 0;
+let numOfLosses = 0;
+let winRate = 0;
+let numOfGamesPlayed = 0;
+let numOfHintClicks = 0;
+let numOfHangmans = 1;
 let gameOver = false;
 let hasPopup = true;
+
+// Choose difficulty
+function generateHardnessLevel(inputValue) {
+  switch (inputValue) {
+    case 'easy':
+      difficulty = 'easy';
+      easyWordsList = countries.filter((obj) => obj.word.length <= 5);
+      return easyWordsList;
+
+    case 'medium':
+      difficulty = 'medium';
+      mediumWordsList = countries.filter(
+        (obj) => obj.word.length > 5 && obj.word.length <= 8
+      );
+      return mediumWordsList;
+
+    case 'hard':
+      difficulty = 'hard';
+      hardWordsList = countries.filter((obj) => obj.word.length > 8);
+      return hardWordsList;
+
+    case 'expert':
+      difficulty = 'expert';
+      // Krävs inget filter, denna baseras inte på Countries.
+      return expertWordsList;
+  }
+}
+
+
+
 // Tracka keypress hela tiden. Uppdatera senaste bokstav
 
 document.addEventListener('keydown', (event) => {
@@ -357,8 +408,8 @@ document.addEventListener('keydown', (event) => {
         numOfGuesses++;
       }
 
-      if (hardnessLevel === 'expert') {
-        compareInput(input, correctChars);
+      if (difficulty === 'expert') {
+        compareInput(input, correctCharsList);
         // renderGuessedChars();
         checkGuessed();
         generateWrongGuessedChars();
@@ -366,7 +417,7 @@ document.addEventListener('keydown', (event) => {
         generateHangman();
         checkIfItsGameOver();
       } else {
-        compareInput(input, correctChars);
+        compareInput(input, correctCharsList);
         renderGuessedChars();
         checkGuessed();
         generateWrongGuessedChars();
@@ -378,19 +429,18 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-let indexOfRandomizedWord;
 //funktion för att slumpa fram ett ord från countries listan och splitta ordet till en array
 function randomizeWord(list) {
   let index = Math.floor(Math.random() * list.length);
-  correctWord = list[index].country;
+  correctWord = list[index].word.toUpperCase();
 
   for (let i = 0; i < correctWord.length; i++) {
-    correctChars.push(correctWord.charAt(i));
+    correctCharsList.push(correctWord.charAt(i));
   }
   indexOfRandomizedWord = index; // För användning i andra funktioner
 }
 
-randomizeWord(generateHardnessLevel(hardnessLevel)); // Startar på medium
+randomizeWord(generateHardnessLevel(difficulty)); // Startar på medium
 // Kollar så att användaren skriver en BOKSTAV
 function compareInput(inputValue) {
   let hasMatched = false;
@@ -405,7 +455,7 @@ function compareInput(inputValue) {
   }
 
   if (hasMatched) {
-    handleGuessedChars(inputValue, guessedChars);
+    handleGuessedChars(inputValue, usedCharsList);
   }
 }
 
@@ -421,36 +471,34 @@ function handleGuessedChars(inputValue, listToCheck) {
   }
 
   if (match === false) {
-    guessedChars.push(inputValue);
+    usedCharsList.push(inputValue);
   }
 }
 
-let guessedCorrectChars = [];
 // Hämtar varje GISSAD bokstav och jämför med CORRECT.
 function checkGuessed() {
   // Loopar fram varje bokstav som finns i det rätta ordet
 
-  for (let i = 0; i < correctChars.length; i++) {
+  for (let i = 0; i < correctCharsList.length; i++) {
     // Testar varje GISSAD bokstav på ALLA plaster från CORRECT.
-    for (let j = 0; j < guessedChars.length; j++) {
-      if (correctChars[i] === guessedChars[j]) {
+    for (let j = 0; j < usedCharsList.length; j++) {
+      if (correctCharsList[i] === usedCharsList[j]) {
         updateCorrectChar(i);
       }
     }
   }
 }
-let numOfCorrect = 0;
 
 function countRightChars() {
-  numOfCorrect = 0;
-  for (let i = 0; i < guessedChars.length; i++) {
-    for (let j = 0; j < correctChars.length; j++) {
-      if (correctChars[j] === guessedChars[i]) {
-        numOfCorrect++;
+  numOfCorrectChars = 0;
+  for (let i = 0; i < usedCharsList.length; i++) {
+    for (let j = 0; j < correctCharsList.length; j++) {
+      if (correctCharsList[j] === usedCharsList[i]) {
+        numOfCorrectChars++;
       }
     }
   }
-  if (numOfCorrect === correctChars.length) {
+  if (numOfCorrectChars === correctCharsList.length) {
     gameWon();
   }
 }
@@ -464,7 +512,7 @@ function renderGuessedChars() {
   removeAll.forEach((item) => item.remove());
 
   // Lägg till alla senaste gissningarna till AVNÄNDA BOKSTÄVER
-  guessedChars.forEach((bokstav) => {
+  usedCharsList.forEach((bokstav) => {
     let guessedList = document.createElement('li');
     guessedList.innerText = bokstav;
     noMatch.appendChild(guessedList);
@@ -474,7 +522,7 @@ function renderGuessedChars() {
 // Lägger in rätt bokstav på rätt INDEX
 function updateCorrectChar(index) {
   let allListElem = document.querySelectorAll('.word li');
-  allListElem[index].innerHTML = correctChars[index];
+  allListElem[index].innerHTML = correctCharsList[index];
 }
 
 // Skapar fram lika många LI element som bokstäver i CORRECT ord.
@@ -484,7 +532,7 @@ function renderInitialCorrectTemplate() {
   allLi.forEach((li) => {
     li.remove();
   });
-  correctChars.forEach((char) => {
+  correctCharsList.forEach((char) => {
     let listItem = document.createElement('li');
     template.appendChild(listItem);
   });
@@ -492,7 +540,7 @@ function renderInitialCorrectTemplate() {
 
 // Ta bort alla CORRECT bokstäver från ALPHABET.
 function generateWrongChars() {
-  correctChars.forEach((bokstav) => {
+  correctCharsList.forEach((bokstav) => {
     for (let i = 0; i < wrongChars.length; i++) {
       if (bokstav === wrongChars[i]) {
         wrongChars.splice(i, 1);
@@ -502,23 +550,23 @@ function generateWrongChars() {
 }
 
 function generateWrongGuessedChars() {
-  // Kopiera värdet till guessedWrongChars
-  guessedWrongChars = [];
-  guessedChars.forEach((char) => {
-    guessedWrongChars.push(char);
+  // Kopiera värdet till usedWrongCharsList
+  usedWrongCharsList = [];
+  usedCharsList.forEach((char) => {
+    usedWrongCharsList.push(char);
   });
 
   // Kollar efter matching mot CORRECT
-  correctChars.forEach((char) => {
-    for (let i = 0; i < guessedWrongChars.length; i++) {
-      if (char === guessedWrongChars[i]) {
-        guessedWrongChars.splice(i, 1);
+  correctCharsList.forEach((char) => {
+    for (let i = 0; i < usedWrongCharsList.length; i++) {
+      if (char === usedWrongCharsList[i]) {
+        usedWrongCharsList.splice(i, 1);
       }
     }
   });
 
   // Felgissningar är total längden av bokstäver i WRONG GUESSED.
-  wrongGuesses = guessedWrongChars.length;
+  wrongGuesses = usedWrongCharsList.length;
 }
 
 generateWrongChars();
@@ -528,7 +576,7 @@ renderInitialCorrectTemplate();
 
 function generateHangman() {
   for (let i = 0; i < wrongGuesses; i++) {
-    document.querySelector('figure').classList.add(`${hangman[i]}`);
+    document.querySelector('figure').classList.add(`${hangmanParts[i]}`);
   }
 }
 
@@ -548,8 +596,8 @@ function generateHangman() {
 
 function gameIsOver() {
   gameOver = true;
-  lostGame++;
-  attempt++;
+  numOfLosses++;
+  numOfGamesPlayed++;
   calcWinPercent();
   updateCounters();
   looseModule();
@@ -557,13 +605,12 @@ function gameIsOver() {
 
 function gameWon() {
   gameOver = true;
-  wonPoints++;
-  attempt++;
+  numOfWins++;
+  numOfGamesPlayed++;
   calcWinPercent();
   updateCounters();
   winModule();
 }
-let numOfHangmans = 1;
 function checkIfHangmanIsDead() {
   if (wrongGuesses >= 5) {
     numOfHangmans++;
@@ -580,15 +627,15 @@ function checkIfItsGameOver() {
 }
 
 function startAgain() {
-  guessedChars = [];
+  usedCharsList = [];
   availableChars = [];
-  correctChars = [];
+  correctCharsList = [];
   wrongGuesses = 0;
-  numOfClicks = 0;
+  numOfHintClicks = 0;
   // document.querySelector('h2').remove();
   document.querySelector('figure').className = '';
   renderGuessedChars();
-  randomizeWord(generateHardnessLevel(hardnessLevel));
+  randomizeWord(generateHardnessLevel(difficulty));
   renderInitialCorrectTemplate();
   gameOver = false;
   resetHints();
@@ -610,16 +657,16 @@ container.appendChild(lost);
 container.appendChild(played);
 container.appendChild(winRatio);
 document.querySelector('main').appendChild(container);
-won.innerHTML = `WINS: ${wonPoints}`;
-lost.innerHTML = `LOST: ${lostGame}`;
-played.innerHTML = `PLAYED: ${attempt}`;
-winRatio.innerHTML = `WIN RATIO: ${winPercent}%`;
+won.innerHTML = `WINS: ${numOfWins}`;
+lost.innerHTML = `LOST: ${numOfLosses}`;
+played.innerHTML = `PLAYED: ${numOfGamesPlayed}`;
+winRatio.innerHTML = `WIN RATIO: ${winRate}%`;
 
 function updateCounters() {
-  won.innerHTML = `WINS: ${wonPoints}`;
-  lost.innerHTML = `LOST: ${lostGame}`;
-  played.innerHTML = `PLAYED: ${attempt}`;
-  winRatio.innerHTML = `WIN RATIO: ${winPercent}%`;
+  won.innerHTML = `WINS: ${numOfWins}`;
+  lost.innerHTML = `LOST: ${numOfLosses}`;
+  played.innerHTML = `PLAYED: ${numOfGamesPlayed}`;
+  winRatio.innerHTML = `WIN RATIO: ${winRate}%`;
 }
 
 // Popup med meddelande om Vinst + Knapp som startar nytt resettat spel
@@ -837,17 +884,16 @@ function errorPopupModule(message) {
 startingPopup();
 let hintButton = document.createElement('button');
 let hintContainer = document.createElement('div');
-hintContainer.className = 'hint-container';
+hintContainer.className = 'hint3-container';
 
 document.querySelector('main').appendChild(hintButton);
 document.querySelector('main').appendChild(hintContainer);
-hintButton.innerText = 'Sacrifice a guess for a hint!';
-let numOfClicks = 0;
+hintButton.innerText = 'Sacrifice a guess for a hint3!';
 
 hintButton.addEventListener('click', (event) => {
-  numOfClicks++;
-  if (numOfClicks <= 3) {
-    handleHintClick(numOfClicks);
+  numOfHintClicks++;
+  if (numOfHintClicks <= 3) {
+    handleHintClick(numOfHintClicks);
   }
 });
 
@@ -858,55 +904,55 @@ function createHints() {
 }
 
 // DU KAN INTE HINTA PÅ SISTA FÖRSÖKET
-function handleHintClick(numOfClicks) {
+function handleHintClick(numOfHintClicks) {
   wrongGuesses++;
   generateHangman();
   checkIfItsGameOver();
 
-  let hint = document.createElement('p');
-  hintContainer.insertAdjacentElement('afterbegin', hint);
+  let hint3 = document.createElement('p');
+  hintContainer.insertAdjacentElement('afterbegin', hint3);
 
   let obj; // Listan som vi vill targeta
 
   // FÅ FRAM RÄTT OBJEKT ATT TA DATA FRÅN
-  if (hardnessLevel === 'easy') {
-    obj = easyList[indexOfRandomizedWord];
-  } else if (hardnessLevel === 'medium') {
-    obj = mediumList[indexOfRandomizedWord];
-  } else if (hardnessLevel === 'hard') {
-    obj = hardList[indexOfRandomizedWord];
+  if (difficulty === 'easy') {
+    obj = easyWordsList[indexOfRandomizedWord];
+  } else if (difficulty === 'medium') {
+    obj = mediumWordsList[indexOfRandomizedWord];
+  } else if (difficulty === 'hard') {
+    obj = hardWordsList[indexOfRandomizedWord];
   } else {
-    obj = expertList[indexOfRandomizedWord];
+    obj = expertWordsList[indexOfRandomizedWord];
   }
 
-  // let hintList = document.querySelectorAll('.hint-container p');
+  // let hintList = document.querySelectorAll('.hint3-container p');
 
   // GENERERA P TAGG MED RÄTT HINT
-  if (numOfClicks === 1) {
-    hint.innerHTML = `THE WORD IS A COUNTRY`;
-  } else if (numOfClicks === 2) {
-    hint.innerHTML = `COLOR OF THE FLAG: ${
-      Object.values(obj)[numOfClicks - 1]
+  if (numOfHintClicks === 1) {
+    hint3.innerHTML = `THE WORD IS A COUNTRY`;
+  } else if (numOfHintClicks === 2) {
+    hint3.innerHTML = `COLOR OF THE hint2: ${
+      Object.values(obj)[numOfHintClicks - 1]
     }`;
   } else {
-    hint.innerHTML = `${Object.values(obj)[numOfClicks - 1]}`;
+    hint3.innerHTML = `${Object.values(obj)[numOfHintClicks - 1]}`;
   }
 
-  if (hardnessLevel === 'expert') {
-    if (numOfClicks === 1) {
-      hint.innerHTML = `We took you for an expert..`;
-    } else if (numOfClicks === 2) {
-      hint.innerHTML = `COLOR OF THE FLAG: ${
-        Object.values(obj)[numOfClicks - 1]
+  if (difficulty === 'expert') {
+    if (numOfHintClicks === 1) {
+      hint3.innerHTML = `We took you for an expert..`;
+    } else if (numOfHintClicks === 2) {
+      hint3.innerHTML = `COLOR OF THE hint2: ${
+        Object.values(obj)[numOfHintClicks - 1]
       }`;
     } else {
-      hint.innerHTML = `${Object.values(obj)[numOfClicks - 1]}`;
+      hint3.innerHTML = `${Object.values(obj)[numOfHintClicks - 1]}`;
     }
   }
 }
 
 function resetHints() {
-  let hints = document.querySelectorAll('.hint-container p');
+  let hints = document.querySelectorAll('.hint3-container p');
   hints.forEach((item) => {
     item.remove();
   });
@@ -915,8 +961,8 @@ function resetHints() {
 // Räknar ut win %
 function calcWinPercent() {
   // Vi vill inte dela på 0.
-  if (wonPoints > 0) {
-    winPercent = Math.floor((wonPoints / attempt) * 100);
+  if (numOfWins > 0) {
+    winRate = Math.floor((numOfWins / numOfGamesPlayed) * 100);
   }
 }
 
@@ -932,12 +978,12 @@ function calcWinPercent() {
 
 // OVERKILSSSSSSSSS
 // Expert mode
-// Generate win ratio in % - winPercent = (LOST / WINS) * 100
+// Generate win ratio in % - winRate = (LOST / WINS) * 100
 // Visa antal försök kvar - Vid EXPERT skriv "Infinite, but more innocent people may suffer."
 
 // EXPERT MODE
 // Visar INTE used chars
-// Efter en loss, generera ny hangman men behåll tidigare.
+// Efter en loss, generera ny hangmanParts men behåll tidigare.
 // Visa hur många personer man dödat tills man klarat ordet! POINT / POPUP
 // När ordet är klart, game won.
 
