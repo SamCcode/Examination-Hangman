@@ -442,6 +442,7 @@ function checkIfUsedChar(inputValue, listToCheck) {
   for (let i = 0; i < listToCheck.length; i++) {
     if (inputValue === listToCheck[i] && difficulty === 'expert') {
       match = true;
+      break;
     }
     if (inputValue === listToCheck[i] && difficulty !== 'expert') {
       errorPopupModule('Already used letter, try again!');
@@ -634,10 +635,15 @@ function startAgain() {
   renderInitialCorrectTemplate();
   gameOver = false;
   resetHints();
+
+  // Om det INTE finns en hint knapp - skapa en.
+  if (!document.getElementById('hint-button')) {
+    generateHintButton();
+  }
+
+  // Ta bort knappen om vi är i expert mode.
   if (difficulty === 'expert') {
     removeHintButton();
-  } else {
-    generateHintButton();
   }
 }
 
@@ -720,8 +726,11 @@ function winPopupModule() {
 }
 
 function removeHintButton() {
-  let btn = document.getElementById('hint-button');
-  btn.remove();
+  // Om det finns en knapp - Ta bort
+  if (document.getElementById('hint-button')) {
+    let btn = document.getElementById('hint-button');
+    btn.remove();
+  }
 }
 
 // Popup med meddelande om Förlust + Knapp som startar nytt resettat spel
