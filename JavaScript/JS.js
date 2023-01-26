@@ -321,13 +321,19 @@ let mediumWordsList = [];
 let hardWordsList = [];
 let expertWordsList = [
   {
-    word: 'aoisfhnweg',
+    word: 'Samuelforpresident',
     hint1: 'this is hard',
     hint2: 'Still trying this?..',
     hint3: 'Stop killing people',
   },
   {
-    word: 'awfouohbefn',
+    word: 'ChristianForLordOfCode',
+    hint1: 'this is hard',
+    hint2: 'Still trying this?..',
+    hint3: 'Stop killing people',
+  },
+  {
+    word: 'BeratForLordOfBugs',
     hint1: 'this is hard',
     hint2: 'Still trying this?..',
     hint3: 'Stop killing people',
@@ -551,10 +557,6 @@ function generateIncorrectUsedChars() {
   wrongGuesses = numOfHintsUsed + usedWrongCharsList.length;
 }
 
-// function calcWrongGuesses (){
-//   wrongGuesses = wrongGuesses + usedWrongCharsList.length;
-// }
-
 // generera hangmans delar
 
 function generateHangman() {
@@ -566,20 +568,6 @@ function generateHangman() {
     }
   }
 }
-
-// spelet är över vid vinst
-
-// när alla rätt bokstäver är gissade
-
-// function buttonStartNewGame() {
-//   let button = document.createElement('button');
-//   button.addEventListener('click', () => {
-//     startAgain();
-//     document.querySelector('button').remove();renderUsedChars
-//   });
-//   button.innerText = 'Start a new game';
-//   document.querySelector('main').appendChild(button);
-// }
 
 function gameIsOver() {
   gameOver = true;
@@ -627,9 +615,7 @@ function startAgain() {
   wrongGuesses = 0;
   numOfHintClicks = 0;
   hasExtraHangman = false;
-  // document.querySelector('h2').remove();
   document.querySelector('figure').className = '';
-  // removeSecondHangman();
   renderUsedChars();
   randomizeWord(generateDifficulty(difficulty));
   renderInitialCorrectTemplate();
@@ -714,7 +700,6 @@ function winPopupModule() {
   });
   expertButton.innerText = 'EXPERT';
 
-  // document.querySelector('main').insertAdjacentElement('afterbegin', text);
   module.appendChild(card);
   card.appendChild(text);
   card.appendChild(buttonContainer);
@@ -787,7 +772,6 @@ function loosePopupModule() {
   });
   expertButton.innerText = 'EXPERT';
 
-  // document.querySelector('main').insertAdjacentElement('afterbegin', text);
   module.appendChild(card);
   card.appendChild(text);
   card.appendChild(buttonContainer);
@@ -797,8 +781,6 @@ function loosePopupModule() {
   buttonContainer.appendChild(expertButton);
   document.querySelector('main').appendChild(module);
 }
-
-// function chooseInitiaHardnessLevel
 
 function removePopup() {
   let module = document.querySelector('.module');
@@ -856,7 +838,6 @@ function newgamePopup() {
   });
   expertButton.innerText = 'EXPERT';
 
-  // document.querySelector('main').insertAdjacentElement('afterbegin', text);
   module.appendChild(card);
   card.appendChild(text);
   card.appendChild(message);
@@ -892,7 +873,6 @@ function errorPopupModule(message) {
   document.querySelector('main').appendChild(module);
 }
 
-// DU KAN INTE HINTA PÅ SISTA FÖRSÖKET
 function handleHintClick(numOfHintClicks) {
   if (numOfHintClicks < 4) {
     numOfHintsUsed++;
@@ -1010,7 +990,6 @@ document.addEventListener('keydown', (event) => {
           hasExtraHangman = true;
         }
         checkIfInputIsAlphaChar(input, correctCharsList);
-        // renderUsedChars();
         compareUsedAndCorrect();
         generateIncorrectUsedChars();
         countCorrectChars();
