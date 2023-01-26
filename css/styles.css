@@ -26,7 +26,7 @@ main figure {
     justify-content: center;
     
 }
-.figure2 {
+#figure2 {
     transform: scaleX(-1);
 
 }
