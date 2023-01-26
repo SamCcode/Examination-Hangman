@@ -22,229 +22,229 @@ const countries = [
   {
     word: 'FINLAND',
     hint1: 'COUNTRY',
-    hint2: 'BLUE AND WHITE',
+    hint2: 'FLAG COLORS ARE BLUE AND WHITE',
     hint3: 'SAUNA',
   },
   {
     word: 'NEDERLÄNDERNA',
     hint1: 'COUNTRY',
-    hint2: 'RED, WHITE AND BLUE',
+    hint2: 'FLAG COLORS ARE RED, WHITE AND BLUE',
     hint3: 'TULIPS',
   },
   {
     word: 'BELGIEN',
     hint1: 'COUNTRY',
-    hint2: 'BLACK, YELLOW AND RED',
+    hint2: 'FLAG COLORS ARE BLACK, YELLOW AND RED',
     hint3: 'CHOCOLATE',
   },
   {
     word: 'BULGARIEN',
     hint1: 'COUNTRY',
-    hint2: 'WHITE, GREEN AND RED',
+    hint2: 'FLAG COLORS ARE WHITE, GREEN AND RED',
     hint3: 'BORDER TO ROMANIA',
   },
   {
     word: 'SPANIEN',
     hint1: 'COUNTRY',
-    hint2: 'RED AND YELLOW',
+    hint2: 'FLAG COLORS ARE RED AND YELLOW',
     hint3: 'TO SIESTA',
   },
   {
     word: 'IRLAND',
     hint1: 'COUNTRY',
-    hint2: 'GREEN, WHITE AND ORANGE',
+    hint2: 'FLAG COLORS ARE GREEN, WHITE AND ORANGE',
     hint3: 'GUINNESS',
   },
   {
     word: 'ITALIEN',
     hint1: 'COUNTRY',
-    hint2: 'GREEN, WHITE AND RED',
+    hint2: 'FLAG COLORS ARE GREEN, WHITE AND RED',
     hint3: 'PIZZA',
   },
   {
     word: 'ÖSTERRIKE',
     hint1: 'COUNTRY',
-    hint2: 'RED AND WHITE',
+    hint2: 'FLAG COLORS ARE RED AND WHITE',
     hint3: 'SKI',
   },
   {
     word: 'GREKLAND',
     hint1: 'COUNTRY',
-    hint2: 'BLUE AND WHITE',
+    hint2: 'FLAG COLORS ARE BLUE AND WHITE',
     hint3: 'OLIVES',
   },
   {
     word: 'KROATIEN',
     hint1: 'COUNTRY',
-    hint2: 'RED, WHITE AND BLUE',
+    hint2: 'FLAG COLORS ARE RED, WHITE AND BLUE',
     hint3: 'STONY BEACHES',
   },
   {
     word: 'CYPERN',
     hint1: 'COUNTRY',
-    hint2: 'WHITE AND ORANGE',
+    hint2: 'FLAG COLORS ARE WHITE AND ORANGE',
     hint3: 'AFRODITE',
   },
   {
     word: 'LETTLAND',
     hint1: 'COUNTRY',
-    hint2: 'RED AND WHITE',
+    hint2: 'FLAG COLORS ARE RED AND WHITE',
     hint3: 'A EASY COUNTRY',
   },
   {
     word: 'LITAUEN',
     hint1: 'COUNTRY',
-    hint2: 'YELLOW, GREEN AND RED',
+    hint2: 'FLAG COLORS ARE YELLOW, GREEN AND RED',
     hint3: 'KNOWN AS THE PEARL OF THE BALTIC SEA',
   },
   {
     word: 'LUXENBURG',
     hint1: 'COUNTRY',
-    hint2: 'RED, WHITE AND BLUE',
+    hint2: 'FLAG COLORS ARE RED, WHITE AND BLUE',
     hint3: 'A TINY COUNTRY',
   },
   {
     word: 'MALTA',
     hint1: 'COUNTRY',
-    hint2: 'RED AND WHITE',
+    hint2: 'FLAG COLORS ARE RED AND WHITE',
     hint3: 'THE FAMOUS CITY OF MDINA',
   },
   {
     word: 'PORTUGAL',
     hint1: 'COUNTRY',
-    hint2: 'GREEN AND RED',
+    hint2: 'FLAG COLORS ARE GREEN AND RED',
     hint3: 'CRISTIANO RONALDO',
   },
   {
     word: 'POLEN',
     hint1: 'COUNTRY',
-    hint2: 'RED AND WHITE',
+    hint2: 'FLAG COLORS ARE RED AND WHITE',
     hint3: 'GREAT WORKERS',
   },
   {
     word: 'FRANKRIKE',
     hint1: 'COUNTRY',
-    hint2: 'BLUE, WHITE AND RED',
+    hint2: 'FLAG COLORS ARE BLUE, WHITE AND RED',
     hint3: 'MOST TIMEZONES IN THE WORLD',
   },
   {
     word: 'RUMÄNIEN',
     hint1: 'COUNTRY',
-    hint2: 'BLUE, YELLOW AND RED',
+    hint2: 'FLAG COLORS ARE BLUE, YELLOW AND RED',
     hint3: 'RIVER DONAU RUNS THRU THIS COUNTRY',
   },
   {
     word: 'SVERIGE',
     hint1: 'COUNTRY',
-    hint2: 'BLUE AND YELLOW',
+    hint2: 'FLAG COLORS ARE BLUE AND YELLOW',
     hint3: 'IKEA',
   },
   {
     word: 'TYSKLAND',
     hint1: 'COUNTRY',
-    hint2: 'BLACK, RED AND YELLOW',
+    hint2: 'FLAG COLORS ARE BLACK, RED AND YELLOW',
     hint3: 'CURRYWURST',
   },
   {
     word: 'SLOVAKIEN',
     hint1: 'COUNTRY',
-    hint2: 'WHITE, BLUE AND RED',
+    hint2: 'FLAG COLORS ARE WHITE, BLUE AND RED',
     hint3: 'BECAME INDEPENDENT 1993',
   },
   {
     word: 'SLOVENIEN',
     hint1: 'COUNTRY',
-    hint2: 'WHITE, BLUE AND RED',
+    hint2: 'FLAG COLORS ARE WHITE, BLUE AND RED',
     hint3: 'LAKE BLED',
   },
   {
     word: 'DANMARK',
     hint1: 'COUNTRY',
-    hint2: 'RED AND WHITE',
+    hint2: 'FLAG COLORS ARE RED AND WHITE',
     hint3: 'PÖLSE',
   },
   {
     word: 'TJECKIEN',
     hint1: 'COUNTRY',
-    hint2: 'BLUE, WHITE AND RED',
+    hint2: 'FLAG COLORS ARE BLUE, WHITE AND RED',
     hint3: 'BEER',
   },
   {
     word: 'UNGERN',
     hint1: 'COUNTRY',
-    hint2: 'RED, WHITE AND GREEN',
+    hint2: 'FLAG COLORS ARE RED, WHITE AND GREEN',
     hint3: 'GOULASH',
   },
   {
     word: 'ESTLAND',
     hint1: 'COUNTRY',
-    hint2: 'BLUE, BLACK AND WHITE',
+    hint2: 'FLAG COLORS ARE BLUE, BLACK AND WHITE',
     hint3: 'HOME OF 2000 ISLANDS',
   },
   {
     word: 'IRAK',
     hint1: 'COUNTRY',
-    hint2: 'RED, WHITE AND BLACK',
+    hint2: 'FLAG COLORS ARE RED, WHITE AND BLACK',
     hint3: 'MEANS TWO VEINS',
   },
   {
     word: 'IRAN',
     hint1: 'COUNTRY',
-    hint2: 'GREEN, WHITE AND RED',
+    hint2: 'FLAG COLORS ARE GREEN, WHITE AND RED',
     hint3: 'CARPETS',
   },
   {
     word: 'INDIEN',
     hint1: 'COUNTRY',
-    hint2: 'ORANGE, WHITE AND GREEN',
+    hint2: 'FLAG COLORS ARE ORANGE, WHITE AND GREEN',
     hint3: 'CURRY',
   },
   {
     word: 'ISRAEL',
     hint1: 'COUNTRY',
-    hint2: 'WHITE AND BLUE',
+    hint2: 'FLAG COLORS ARE WHITE AND BLUE',
     hint3: 'HOME OF JERUSALEM',
   },
   {
     word: 'KINA',
     hint1: 'COUNTRY',
-    hint2: 'RED AND YELLOW',
+    hint2: 'FLAG COLORS ARE RED AND YELLOW',
     hint3: 'RICE',
   },
   {
     word: 'LAOS',
     hint1: 'COUNTRY',
-    hint2: 'RED, BLUE AND WHITE',
+    hint2: 'FLAG COLORS ARE RED, BLUE AND WHITE',
     hint3: 'THE FORMER KINGDOM OF LAN XANG',
   },
   {
     word: 'NEPAL',
     hint1: 'COUNTRY',
-    hint2: 'RED, BLUE AND WHITE',
+    hint2: 'FLAG COLORS ARE RED, BLUE AND WHITE',
     hint3: 'GOT GREAT MOUNTAINS',
   },
   {
     word: 'NORDKOREA',
     hint1: 'COUNTRY',
-    hint2: 'BLUE, WHITE AND RED',
+    hint2: 'FLAG COLORS ARE BLUE, WHITE AND RED',
     hint3: 'KIM JONG-UN',
   },
   {
     word: 'QUATAR',
     hint1: 'COUNTRY',
-    hint2: 'BURGUNDY AND WHITE',
+    hint2: 'FLAG COLORS ARE BURGUNDY AND WHITE',
     hint3: 'LOVES TO SAUNA',
   },
   {
     word: 'OMAN',
     hint1: 'COUNTRY',
-    hint2: 'RED, WHITE AND GREEN',
+    hint2: 'FLAG COLORS ARE RED, WHITE AND GREEN',
     hint3: 'TO SHORT TO GET A HINT',
   },
   {
     word: 'JAPAN',
     hint1: 'COUNTRY',
-    hint2: 'WHITE AND RED',
+    hint2: 'FLAG COLORS ARE WHITE AND RED',
     hint3: 'LOVES SUSHI',
   },
 ];
@@ -369,7 +369,7 @@ let gameOver = false;
 let hasPopup = true;
 
 // Choose difficulty
-function generateHardnessLevel(inputValue) {
+function generateDifficulty(inputValue) {
   switch (inputValue) {
     case 'easy':
       difficulty = 'easy';
@@ -407,7 +407,7 @@ function randomizeWord(list) {
 }
 
 // Kollar så att användaren skriver en BOKSTAV
-function compareInput(inputValue) {
+function checkIfInputIsAlphaChar(inputValue) {
   let hasMatched = false;
   for (let i = 0; i < alphabet.length; i++) {
     if (inputValue === alphabet[i]) {
@@ -420,12 +420,12 @@ function compareInput(inputValue) {
   }
 
   if (hasMatched) {
-    handleGuessedChars(inputValue, usedCharsList);
+    checkIfUsedChar(inputValue, usedCharsList);
   }
 }
 
 // Kollar om vi redan har använt bokstaven, annars läggs bokstaven till i GISSADE listan.
-function handleGuessedChars(inputValue, listToCheck) {
+function checkIfUsedChar(inputValue, listToCheck) {
   let match = false;
   for (let i = 0; i < listToCheck.length; i++) {
     if (inputValue === listToCheck[i]) {
@@ -441,7 +441,7 @@ function handleGuessedChars(inputValue, listToCheck) {
 }
 
 // Hämtar varje GISSAD bokstav och jämför med CORRECT.
-function checkGuessed() {
+function compareUsedAndCorrect() {
   // Loopar fram varje bokstav som finns i det rätta ordet
 
   for (let i = 0; i < correctCharsList.length; i++) {
@@ -454,7 +454,8 @@ function checkGuessed() {
   }
 }
 
-function countRightChars() {
+// Räknar rätt bokstäver
+function countCorrectChars() {
   numOfCorrectChars = 0;
   for (let i = 0; i < usedCharsList.length; i++) {
     for (let j = 0; j < correctCharsList.length; j++) {
@@ -469,7 +470,7 @@ function countRightChars() {
 }
 
 // Skriv ut alla AVNÄNDA BOKSTÄVER
-function renderGuessedChars() {
+function renderUsedChars() {
   let noMatch = document.querySelector('.nomatch');
 
   // Ta bort alla tidigare LI / Gissningar från UI
@@ -504,7 +505,7 @@ function renderInitialCorrectTemplate() {
 }
 
 // Ta bort alla CORRECT bokstäver från ALPHABET.
-function generateWrongChars() {
+function generateIncorrectChars() {
   correctCharsList.forEach((bokstav) => {
     for (let i = 0; i < wrongChars.length; i++) {
       if (bokstav === wrongChars[i]) {
@@ -514,7 +515,7 @@ function generateWrongChars() {
   });
 }
 
-function generateWrongGuessedChars() {
+function generateIncorrectUsedChars() {
   // Kopiera värdet till usedWrongCharsList
   usedWrongCharsList = [];
   usedCharsList.forEach((char) => {
@@ -555,7 +556,7 @@ function generateHangman() {
 //   let button = document.createElement('button');
 //   button.addEventListener('click', () => {
 //     startAgain();
-//     document.querySelector('button').remove();renderGuessedChars
+//     document.querySelector('button').remove();renderUsedChars
 //   });
 //   button.innerText = 'Start a new game';
 //   document.querySelector('main').appendChild(button);
@@ -565,28 +566,30 @@ function gameIsOver() {
   gameOver = true;
   numOfLosses++;
   numOfGamesPlayed++;
-  calcWinPercent();
-  updateCounters();
-  looseModule();
+  calcWinRate();
+  updateResultCounters();
+  loosePopupModule();
 }
 
 function gameWon() {
   gameOver = true;
   numOfWins++;
   numOfGamesPlayed++;
-  calcWinPercent();
-  updateCounters();
-  winModule();
+  calcWinRate();
+  updateResultCounters();
+  winPopupModule();
 }
+
 function checkIfHangmanIsDead() {
   if (wrongGuesses >= 5) {
     numOfHangmans++;
     insertAnotherHangman();
   }
 }
+
 function insertAnotherHangman() {}
 
-function checkIfItsGameOver() {
+function checkIfGameOver() {
   if (wrongGuesses >= 5) {
     gameIsOver();
   }
@@ -602,16 +605,14 @@ function startAgain() {
   numOfHintClicks = 0;
   // document.querySelector('h2').remove();
   document.querySelector('figure').className = '';
-  renderGuessedChars();
-  randomizeWord(generateHardnessLevel(difficulty));
+  renderUsedChars();
+  randomizeWord(generateDifficulty(difficulty));
   renderInitialCorrectTemplate();
   gameOver = false;
   resetHints();
 }
 
-
-
-function updateCounters() {
+function updateResultCounters() {
   let won = document.querySelector('.won');
   won.innerHTML = `WINS: ${numOfWins}`;
   let lost = document.querySelector('.lost');
@@ -623,7 +624,7 @@ function updateCounters() {
 }
 
 // Popup med meddelande om Vinst + Knapp som startar nytt resettat spel
-function winModule() {
+function winPopupModule() {
   let module = document.createElement('div');
   module.className = 'module';
 
@@ -638,32 +639,32 @@ function winModule() {
 
   let easyButton = document.createElement('button');
   easyButton.addEventListener('click', () => {
-    generateHardnessLevel('easy');
-    removeModule();
+    generateDifficulty('easy');
+    removePopup();
     startAgain();
   });
   easyButton.innerText = 'EASY';
 
   let mediumButton = document.createElement('button');
   mediumButton.addEventListener('click', () => {
-    generateHardnessLevel('medium');
-    removeModule();
+    generateDifficulty('medium');
+    removePopup();
     startAgain();
   });
   mediumButton.innerText = 'MEDIUM';
 
   let hardButton = document.createElement('button');
   hardButton.addEventListener('click', () => {
-    generateHardnessLevel('hard');
-    removeModule();
+    generateDifficulty('hard');
+    removePopup();
     startAgain();
   });
   hardButton.innerText = 'HARD';
 
   let expertButton = document.createElement('button');
   expertButton.addEventListener('click', () => {
-    generateHardnessLevel('expert');
-    removeModule();
+    generateDifficulty('expert');
+    removePopup();
     startAgain();
   });
   expertButton.innerText = 'EXPERT';
@@ -680,7 +681,7 @@ function winModule() {
 }
 
 // Popup med meddelande om Förlust + Knapp som startar nytt resettat spel
-function looseModule() {
+function loosePopupModule() {
   let module = document.createElement('div');
   module.className = 'module';
 
@@ -698,32 +699,32 @@ function looseModule() {
 
   let easyButton = document.createElement('button');
   easyButton.addEventListener('click', () => {
-    generateHardnessLevel('easy');
-    removeModule();
+    generateDifficulty('easy');
+    removePopup();
     startAgain();
   });
   easyButton.innerText = 'EASY';
 
   let mediumButton = document.createElement('button');
   mediumButton.addEventListener('click', () => {
-    generateHardnessLevel('medium');
-    removeModule();
+    generateDifficulty('medium');
+    removePopup();
     startAgain();
   });
   mediumButton.innerText = 'MEDIUM';
 
   let hardButton = document.createElement('button');
   hardButton.addEventListener('click', () => {
-    generateHardnessLevel('hard');
-    removeModule();
+    generateDifficulty('hard');
+    removePopup();
     startAgain();
   });
   hardButton.innerText = 'HARD';
 
   let expertButton = document.createElement('button');
   expertButton.addEventListener('click', () => {
-    generateHardnessLevel('expert');
-    removeModule();
+    generateDifficulty('expert');
+    removePopup();
     startAgain();
   });
   expertButton.innerText = 'EXPERT';
@@ -741,13 +742,13 @@ function looseModule() {
 
 // function chooseInitiaHardnessLevel
 
-function removeModule() {
+function removePopup() {
   let module = document.querySelector('.module');
   module.remove();
   hasPopup = false;
 }
 
-function startingPopup() {
+function newgamePopup() {
   let module = document.createElement('div');
   module.className = 'module';
 
@@ -766,32 +767,32 @@ function startingPopup() {
 
   let easyButton = document.createElement('button');
   easyButton.addEventListener('click', () => {
-    generateHardnessLevel('easy');
-    removeModule();
+    generateDifficulty('easy');
+    removePopup();
     startAgain();
   });
   easyButton.innerText = 'EASY';
 
   let mediumButton = document.createElement('button');
   mediumButton.addEventListener('click', () => {
-    generateHardnessLevel('medium');
-    removeModule();
+    generateDifficulty('medium');
+    removePopup();
     startAgain();
   });
   mediumButton.innerText = 'MEDIUM';
 
   let hardButton = document.createElement('button');
   hardButton.addEventListener('click', () => {
-    generateHardnessLevel('hard');
-    removeModule();
+    generateDifficulty('hard');
+    removePopup();
     startAgain();
   });
   hardButton.innerText = 'HARD';
 
   let expertButton = document.createElement('button');
   expertButton.addEventListener('click', () => {
-    generateHardnessLevel('expert');
-    removeModule();
+    generateDifficulty('expert');
+    removePopup();
     startAgain();
   });
   expertButton.innerText = 'EXPERT';
@@ -808,8 +809,6 @@ function startingPopup() {
   document.querySelector('main').appendChild(module);
 }
 
-function resultModule(result, correctWord) {}
-
 function errorPopupModule(message) {
   hasPopup = true;
 
@@ -825,7 +824,7 @@ function errorPopupModule(message) {
   let button = document.createElement('button');
   button.innerHTML = 'Close';
   button.addEventListener('click', () => {
-    removeModule();
+    removePopup();
   });
 
   module.appendChild(card);
@@ -840,7 +839,7 @@ function handleHintClick(numOfHintClicks) {
     numOfHintsUsed++;
     wrongGuesses = numOfHintsUsed + usedWrongCharsList.length;
     generateHangman();
-    checkIfItsGameOver();
+    checkIfGameOver();
 }
 
   let hint = document.createElement('p');
@@ -863,6 +862,7 @@ function handleHintClick(numOfHintClicks) {
   hint.innerHTML = `${Object.values(obj)[numOfHintClicks + 1]}`;
 }
 
+//Nollställ Hints
 function resetHints() {
   let hints = document.querySelectorAll('.hint-container p');
   hints.forEach((item) => {
@@ -871,44 +871,12 @@ function resetHints() {
 }
 
 // Räknar ut win %
-function calcWinPercent() {
+function calcWinRate() {
   // Vi vill inte dela på 0.
   if (numOfWins > 0) {
     winRate = Math.floor((numOfWins / numOfGamesPlayed) * 100);
   }
 }
-
-// Tracka keypress hela tiden. Uppdatera senaste bokstav
-
-document.addEventListener('keydown', (event) => {
-
-  if (hasPopup === false) {
-    if (gameOver === false) {
-      if (window.event) {
-        input = event.key.toUpperCase();
-        numOfGuesses++;
-      }
-
-      if (difficulty === 'expert') {
-        compareInput(input, correctCharsList);
-        // renderGuessedChars();
-        checkGuessed();
-        generateWrongGuessedChars();
-        countRightChars();
-        generateHangman();
-        checkIfItsGameOver();
-      } else {
-        compareInput(input, correctCharsList);
-        renderGuessedChars();
-        checkGuessed();
-        generateWrongGuessedChars();
-        countRightChars();
-        generateHangman();
-        checkIfItsGameOver();
-      }
-    }
-  }
-});
 
 //Hint button
 function generateHintButton() {
@@ -951,6 +919,37 @@ function generateScoreboard() {
   winRateEle.innerHTML = `WIN RATIO: ${winRate}%`;
 }
 
+// Tracka keypress hela tiden. Uppdatera senaste bokstav
+document.addEventListener('keydown', (event) => {
+
+  if (hasPopup === false) {
+    if (gameOver === false) {
+      if (window.event) {
+        input = event.key.toUpperCase();
+        numOfGuesses++;
+      }
+
+      if (difficulty === 'expert') {
+        checkIfInputIsAlphaChar(input, correctCharsList);
+        // renderUsedChars();
+        compareUsedAndCorrect();
+        generateIncorrectUsedChars();
+        countCorrectChars();
+        generateHangman();
+        checkIfGameOver();
+      } else {
+        checkIfInputIsAlphaChar(input, correctCharsList);
+        renderUsedChars();
+        compareUsedAndCorrect();
+        generateIncorrectUsedChars();
+        countCorrectChars();
+        generateHangman();
+        checkIfGameOver();
+      }
+    }
+  }
+});
+
 //Genererar hintknappen
 generateHintButton();
 
@@ -958,34 +957,20 @@ generateHintButton();
 generateScoreboard();
 
 //Genererar fel bokstäver baserat på 'correctWord'
-generateWrongChars();
+generateIncorrectChars();
 
 //Genererar blanks för det korrekta ordet
 renderInitialCorrectTemplate();
 
 //Popup för att välja svårighetsgrad
-startingPopup();
+newgamePopup();
 
 //Randomgenererar ord från 'difficulty'
-randomizeWord(generateHardnessLevel(difficulty)); // Startar på medium
+randomizeWord(generateDifficulty(difficulty)); // Startar på medium
 
-
-
-
-
-// hintContainer.removeEventListener('click', (event) => {
-//   wrongGuesses++;
-//   generateHangman();
-//   checkIfItsGameOver();
-// });
-
-// ERROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOR
-// När vi genererat en HINT, så räknas inte nästkommande felgissning.
-// 3 hints = 3 försök som inte loggas.
 
 // OVERKILSSSSSSSSS
 // Expert mode
-// Generate win ratio in % - winRate = (LOST / WINS) * 100
 // Visa antal försök kvar - Vid EXPERT skriv "Infinite, but more innocent people may suffer."
 
 // EXPERT MODE
@@ -993,6 +978,7 @@ randomizeWord(generateHardnessLevel(difficulty)); // Startar på medium
 // Efter en loss, generera ny hangmanParts men behåll tidigare.
 // Visa hur många personer man dödat tills man klarat ordet! POINT / POPUP
 // När ordet är klart, game won.
+// Dubbla poäng vid game won
 
 // Funktioner:
 // Start expert mode
