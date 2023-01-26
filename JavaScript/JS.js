@@ -3,11 +3,20 @@
 // SELECT ALL - Same variable name
 // Ctrl + Shift + L
 
+// Sök sen matcha alla
+// Ctrl + F  - sök
+// Alt + Enter  - Markerar alla träffar på sökordet
+
 // LIST OF SHORTCUTS VS CODE
 // https://gist.github.com/cleary/d168e301429c0305c49d97907796c72d
 
-// Array för ord
+// VARIABLER
+// FUNKTIONNAMN
+// KOMMENTERA FUNKTIONER
+// LÄGG UT FUNKTIONER I BLOCK
+// SAMLA ALLA FUNCTION CALLS PÅ BOTTEN.
 
+// Array för ord
 const countries = [
   {
     country: 'FINLAND',
@@ -350,6 +359,7 @@ document.addEventListener('keydown', (event) => {
 
       if (hardnessLevel === 'expert') {
         compareInput(input, correctChars);
+        // renderGuessedChars();
         checkGuessed();
         generateWrongGuessedChars();
         countRightChars();
