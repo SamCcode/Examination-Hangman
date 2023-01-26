@@ -924,8 +924,10 @@ function generateHintButton() {
   let hintContainer = document.createElement('div');
   hintContainer.className = 'hint-container';
 
-  document.querySelector('main').appendChild(hintButton);
   document.querySelector('main').appendChild(hintContainer);
+  document
+    .querySelector('.hint-container')
+    .insertAdjacentElement('beforebegin', hintButton);
   hintButton.innerText = 'Sacrifice a guess for a hint!';
 
   hintButton.addEventListener('click', (event) => {
@@ -1025,22 +1027,3 @@ newgamePopup();
 
 //Randomgenererar ord från 'difficulty'
 randomizeWord(generateDifficulty(difficulty)); // Startar på medium
-
-// OVERKILSSSSSSSSS
-// Expert mode
-// Visa antal försök kvar - Vid EXPERT skriv "Infinite, but more innocent people may suffer."
-
-// EXPERT MODE
-// Visar INTE used chars
-// Efter en loss, generera ny hangmanParts men behåll tidigare.
-// Visa hur många personer man dödat tills man klarat ordet! POINT / POPUP
-// När ordet är klart, game won.
-// Dubbla poäng vid game won
-
-// Funktioner:
-// Start expert mode
-//    - Tar bort used chars UI
-//    - Genererar svåra ord från Expert listan
-
-// IF sats där antal felgissningar inte avbryter eventlistenern
-//
