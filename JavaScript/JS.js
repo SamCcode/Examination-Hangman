@@ -321,13 +321,19 @@ let mediumWordsList = [];
 let hardWordsList = [];
 let expertWordsList = [
   {
-    word: 'aoisfhnweg',
+    word: 'BeratForPresident',
     hint1: 'this is hard',
     hint2: 'Still trying this?..',
     hint3: 'Stop killing people',
   },
   {
-    word: 'awfouohbefn',
+    word: 'ChristianForPresident',
+    hint1: 'this is hard',
+    hint2: 'Still trying this?..',
+    hint3: 'Stop killing people',
+  },
+  {
+    word: 'SamuelForPresident',
     hint1: 'this is hard',
     hint2: 'Still trying this?..',
     hint3: 'Stop killing people',
@@ -550,12 +556,7 @@ function generateIncorrectUsedChars() {
   wrongGuesses = numOfHintsUsed + usedWrongCharsList.length;
 }
 
-// function calcWrongGuesses (){
-//   wrongGuesses = wrongGuesses + usedWrongCharsList.length;
-// }
-
 // generera hangmans delar
-
 function generateHangman() {
   for (let i = 0; i < wrongGuesses; i++) {
     if (wrongGuesses <= 5) {
@@ -566,20 +567,7 @@ function generateHangman() {
   }
 }
 
-// spelet är över vid vinst
-
 // när alla rätt bokstäver är gissade
-
-// function buttonStartNewGame() {
-//   let button = document.createElement('button');
-//   button.addEventListener('click', () => {
-//     startAgain();
-//     document.querySelector('button').remove();renderUsedChars
-//   });
-//   button.innerText = 'Start a new game';
-//   document.querySelector('main').appendChild(button);
-// }
-
 function gameIsOver() {
   gameOver = true;
   numOfLosses++;
@@ -589,6 +577,7 @@ function gameIsOver() {
   loosePopupModule();
 }
 
+// spelet är över vid vinst
 function gameWon() {
   gameOver = true;
   numOfWins++;
@@ -626,19 +615,12 @@ function startAgain() {
   wrongGuesses = 0;
   numOfHintClicks = 0;
   hasExtraHangman = false;
-  // document.querySelector('h2').remove();
   document.querySelector('figure').className = '';
-  // removeSecondHangman();
   renderUsedChars();
   randomizeWord(generateDifficulty(difficulty));
   renderInitialCorrectTemplate();
   gameOver = false;
   resetHints();
-  if (difficulty === 'expert') {
-    removeHintButton();
-  } else {
-    generateHintButton();
-  }
 }
 
 function removeSecondHangman() {
@@ -673,15 +655,23 @@ function winPopupModule() {
 
   let easyButton = document.createElement('button');
   easyButton.addEventListener('click', () => {
+    if (difficulty === 'expert') {
+      generateHintButton()
+    }
     generateDifficulty('easy');
     removePopup();
     startAgain();
     removeSecondHangman();
   });
+
+  
   easyButton.innerText = 'EASY';
 
   let mediumButton = document.createElement('button');
   mediumButton.addEventListener('click', () => {
+    if (difficulty === 'expert') {
+      generateHintButton()
+    }
     generateDifficulty('medium');
     removePopup();
     startAgain();
@@ -691,6 +681,9 @@ function winPopupModule() {
 
   let hardButton = document.createElement('button');
   hardButton.addEventListener('click', () => {
+    if (difficulty === 'expert') {
+      generateHintButton()
+    }
     generateDifficulty('hard');
     removePopup();
     startAgain();
@@ -700,11 +693,18 @@ function winPopupModule() {
 
   let expertButton = document.createElement('button');
   expertButton.addEventListener('click', () => {
-    removeHintButton();
-    generateDifficulty('expert');
-    removePopup();
-    startAgain();
-    removeSecondHangman();
+    if (difficulty === 'expert') {
+      startAgain();
+      removePopup();
+      removeSecondHangman();
+    } else {
+      removeHintButton()
+      generateDifficulty('expert');
+      startAgain();
+      removePopup();
+      removeSecondHangman();
+      
+    }
   });
   expertButton.innerText = 'EXPERT';
 
@@ -728,21 +728,26 @@ function removeHintButton() {
 function loosePopupModule() {
   let module = document.createElement('div');
   module.className = 'module';
-
+  
   let card = document.createElement('div');
   card.className = 'card';
-
+  
   let text = document.createElement('h2');
   text.innerHTML = `Game over! <span>Correct word was: ${correctWord}</span><br><span>To start again, choose difficulty!</span>`;
-
+  
   let message = document.createElement('h2');
   message.innerHTML = `Game over! <span>Ordet vi sökte var: ${correctWord}</span>`;
-
+  
   let buttonContainer = document.createElement('div');
   buttonContainer.className = 'button-container';
-
+  
   let easyButton = document.createElement('button');
+  
+  
   easyButton.addEventListener('click', () => {
+    if (difficulty === 'expert') {
+      generateHintButton()
+    }
     generateDifficulty('easy');
     removePopup();
     startAgain();
@@ -752,6 +757,9 @@ function loosePopupModule() {
 
   let mediumButton = document.createElement('button');
   mediumButton.addEventListener('click', () => {
+    if (difficulty === 'expert') {
+      generateHintButton()
+    }
     generateDifficulty('medium');
     removePopup();
     startAgain();
@@ -761,6 +769,9 @@ function loosePopupModule() {
 
   let hardButton = document.createElement('button');
   hardButton.addEventListener('click', () => {
+    if (difficulty === 'expert') {
+      generateHintButton()
+    }
     generateDifficulty('hard');
     removePopup();
     startAgain();
@@ -770,11 +781,18 @@ function loosePopupModule() {
 
   let expertButton = document.createElement('button');
   expertButton.addEventListener('click', () => {
-    removeHintButton();
-    generateDifficulty('expert');
-    removePopup();
-    startAgain();
-    removeSecondHangman();
+    if (difficulty === 'expert') {
+      startAgain();
+      removePopup();
+      removeSecondHangman();
+    } else {
+      removeHintButton()
+      generateDifficulty('expert');
+      startAgain();
+      removePopup();
+      removeSecondHangman();
+      
+    }
   });
   expertButton.innerText = 'EXPERT';
 
@@ -1037,6 +1055,8 @@ newgamePopup();
 
 //Randomgenererar ord från 'difficulty'
 randomizeWord(generateDifficulty(difficulty)); // Startar på medium
+
+
 
 // OVERKILSSSSSSSSS
 // Expert mode
