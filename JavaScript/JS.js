@@ -271,6 +271,19 @@ let wrongChars = [
   'Ö',
 ];
 
+let expertList = [
+  {
+    country: 'JDIOWAMDWAODWAHI',
+    flag: 'Still trying this?..',
+    hint: 'Stop killing people',
+  },
+  {
+    country: 'DLPWAMONDWIDWJIQDJW',
+    flag: 'Still trying this?..',
+    hint: 'Stop killing people',
+  },
+];
+
 let hardnessLevel = 'medium';
 
 let guessedWrongChars = [];
@@ -297,6 +310,11 @@ function generateHardnessLevel(inputValue) {
       hardnessLevel = 'hard';
       hardList = countries.filter((obj) => obj.country.length > 8);
       return hardList;
+
+    case 'expert':
+      hardnessLevel = 'expert';
+      // Krävs inget filter, denna baseras inte på Countries.
+      return expertList;
   }
 }
 
@@ -309,6 +327,7 @@ let hangman = ['scaffold', 'head', 'body', 'arms', 'legs'];
 let wrongGuesses = 0;
 let wonPoints = 0;
 let lostGame = 0;
+let winPercent = 0;
 let attempt = 0;
 let input = '';
 let gameOver = false;
@@ -323,13 +342,22 @@ document.addEventListener('keydown', (event) => {
         numOfGuesses++;
       }
 
-      compareInput(input, correctChars);
-      renderGuessedChars();
-      checkGuessed();
-      generateWrongGuessedChars();
-      countRightChars();
-      generateHangman();
-      checkIfItsGameOver();
+      if (hardnessLevel === 'expert') {
+        compareInput(input, correctChars);
+        checkGuessed();
+        generateWrongGuessedChars();
+        countRightChars();
+        generateHangman();
+        checkIfItsGameOver();
+      } else {
+        compareInput(input, correctChars);
+        renderGuessedChars();
+        checkGuessed();
+        generateWrongGuessedChars();
+        countRightChars();
+        generateHangman();
+        checkIfItsGameOver();
+      }
     }
   }
 });
@@ -506,7 +534,8 @@ function gameIsOver() {
   gameOver = true;
   lostGame++;
   attempt++;
-  uppdateCounters();
+  calcWinPercent();
+  updateCounters();
   looseModule();
 }
 
@@ -514,13 +543,22 @@ function gameWon() {
   gameOver = true;
   wonPoints++;
   attempt++;
-  uppdateCounters();
+  calcWinPercent();
+  updateCounters();
   winModule();
 }
+let numOfHangmans = 1;
+function checkIfHangmanIsDead() {
+  if (wrongGuesses >= 5) {
+    numOfHangmans++;
+    insertAnotherHangman();
+  }
+}
+
+function insertAnotherHangman() {}
 
 function checkIfItsGameOver() {
   if (wrongGuesses >= 5) {
-    // buttonStartNewGame();
     gameIsOver();
   }
 }
@@ -547,20 +585,25 @@ let lost = document.createElement('p');
 lost.className = 'lost';
 let played = document.createElement('p');
 played.className = 'played';
+let winRatio = document.createElement('p');
+winRatio.className = 'winRatio';
 let container = document.createElement('div');
 container.className = 'score';
 container.appendChild(won);
 container.appendChild(lost);
 container.appendChild(played);
+container.appendChild(winRatio);
 document.querySelector('main').appendChild(container);
 won.innerHTML = `WINS: ${wonPoints}`;
 lost.innerHTML = `LOST: ${lostGame}`;
 played.innerHTML = `PLAYED: ${attempt}`;
+winRatio.innerHTML = `WIN RATIO: ${winPercent}%`;
 
-function uppdateCounters() {
+function updateCounters() {
   won.innerHTML = `WINS: ${wonPoints}`;
   lost.innerHTML = `LOST: ${lostGame}`;
   played.innerHTML = `PLAYED: ${attempt}`;
+  winRatio.innerHTML = `WIN RATIO: ${winPercent}%`;
 }
 
 // Popup med meddelande om Vinst + Knapp som startar nytt resettat spel
@@ -600,6 +643,15 @@ function winModule() {
     startAgain();
   });
   hardButton.innerText = 'HARD';
+
+  let expertButton = document.createElement('button');
+  expertButton.addEventListener('click', () => {
+    generateHardnessLevel('expert');
+    removeModule();
+    startAgain();
+  });
+  expertButton.innerText = 'EXPERT';
+
   // document.querySelector('main').insertAdjacentElement('afterbegin', text);
   module.appendChild(card);
   card.appendChild(text);
@@ -607,6 +659,7 @@ function winModule() {
   buttonContainer.appendChild(easyButton);
   buttonContainer.appendChild(mediumButton);
   buttonContainer.appendChild(hardButton);
+  buttonContainer.appendChild(expertButton);
   document.querySelector('main').appendChild(module);
 }
 
@@ -651,6 +704,14 @@ function looseModule() {
   });
   hardButton.innerText = 'HARD';
 
+  let expertButton = document.createElement('button');
+  expertButton.addEventListener('click', () => {
+    generateHardnessLevel('expert');
+    removeModule();
+    startAgain();
+  });
+  expertButton.innerText = 'EXPERT';
+
   // document.querySelector('main').insertAdjacentElement('afterbegin', text);
   module.appendChild(card);
   card.appendChild(text);
@@ -658,6 +719,7 @@ function looseModule() {
   buttonContainer.appendChild(easyButton);
   buttonContainer.appendChild(mediumButton);
   buttonContainer.appendChild(hardButton);
+  buttonContainer.appendChild(expertButton);
   document.querySelector('main').appendChild(module);
 }
 
@@ -710,6 +772,14 @@ function startingPopup() {
   });
   hardButton.innerText = 'HARD';
 
+  let expertButton = document.createElement('button');
+  expertButton.addEventListener('click', () => {
+    generateHardnessLevel('expert');
+    removeModule();
+    startAgain();
+  });
+  expertButton.innerText = 'EXPERT';
+
   // document.querySelector('main').insertAdjacentElement('afterbegin', text);
   module.appendChild(card);
   card.appendChild(text);
@@ -718,6 +788,7 @@ function startingPopup() {
   buttonContainer.appendChild(easyButton);
   buttonContainer.appendChild(mediumButton);
   buttonContainer.appendChild(hardButton);
+  buttonContainer.appendChild(expertButton);
   document.querySelector('main').appendChild(module);
 }
 
@@ -786,8 +857,10 @@ function handleHintClick(numOfClicks) {
     obj = easyList[indexOfRandomizedWord];
   } else if (hardnessLevel === 'medium') {
     obj = mediumList[indexOfRandomizedWord];
-  } else {
+  } else if (hardnessLevel === 'hard') {
     obj = hardList[indexOfRandomizedWord];
+  } else {
+    obj = expertList[indexOfRandomizedWord];
   }
 
   // let hintList = document.querySelectorAll('.hint-container p');
@@ -802,6 +875,18 @@ function handleHintClick(numOfClicks) {
   } else {
     hint.innerHTML = `${Object.values(obj)[numOfClicks - 1]}`;
   }
+
+  if (hardnessLevel === 'expert') {
+    if (numOfClicks === 1) {
+      hint.innerHTML = `We took you for an expert..`;
+    } else if (numOfClicks === 2) {
+      hint.innerHTML = `COLOR OF THE FLAG: ${
+        Object.values(obj)[numOfClicks - 1]
+      }`;
+    } else {
+      hint.innerHTML = `${Object.values(obj)[numOfClicks - 1]}`;
+    }
+  }
 }
 
 function resetHints() {
@@ -811,12 +896,39 @@ function resetHints() {
   });
 }
 
+// Räknar ut win %
+function calcWinPercent() {
+  // Vi vill inte dela på 0.
+  if (wonPoints > 0) {
+    winPercent = Math.floor((wonPoints / attempt) * 100);
+  }
+}
+
 // hintContainer.removeEventListener('click', (event) => {
 //   wrongGuesses++;
 //   generateHangman();
 //   checkIfItsGameOver();
 // });
 
-function useHint(boolean) {}
+// ERROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOR
+// När vi genererat en HINT, så räknas inte nästkommande felgissning.
+// 3 hints = 3 försök som inte loggas.
 
-// Ett klick
+// OVERKILSSSSSSSSS
+// Expert mode
+// Generate win ratio in % - winPercent = (LOST / WINS) * 100
+// Visa antal försök kvar - Vid EXPERT skriv "Infinite, but more innocent people may suffer."
+
+// EXPERT MODE
+// Visar INTE used chars
+// Efter en loss, generera ny hangman men behåll tidigare.
+// Visa hur många personer man dödat tills man klarat ordet! POINT / POPUP
+// När ordet är klart, game won.
+
+// Funktioner:
+// Start expert mode
+//    - Tar bort used chars UI
+//    - Genererar svåra ord från Expert listan
+
+// IF sats där antal felgissningar inte avbryter eventlistenern
+//
