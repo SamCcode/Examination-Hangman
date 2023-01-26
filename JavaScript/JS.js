@@ -809,7 +809,7 @@ function newgamePopup() {
 
   let message = document.createElement('p');
   message.className = 'diff-text';
-  message.innerHTML = `Easy: 1-5 letters <br> Medium: 6-8 letters<br> Hard: 9+ letters`;
+  message.innerHTML = `Easy: 1-5 letters <br> Medium: 6-8 letters<br> Hard: 9+ letters<br> Expert: Good luck......`;
 
   let buttonContainer = document.createElement('div');
   buttonContainer.className = 'button-container';
