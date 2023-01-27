@@ -876,7 +876,7 @@ function handleHintClick(numOfHintClicks) {
   // Kollar så vi inte använt våra 3 försök.
   if (numOfHintClicks < 4) {
     numOfHintsUsed++;
-    numOfWrongGuesses = numOfHintsUsed + numOfWrongChars.length;
+    numOfWrongGuesses = numOfHintsUsed + numOfWrongChars;
     generateHangman();
     checkIfGameOver();
   }
